@@ -1,0 +1,16 @@
+{
+  "name": "governobert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codeday-clear": "^1.1.4",
+    "moment": "^2.24.0",
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}
