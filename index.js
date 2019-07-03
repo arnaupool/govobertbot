@@ -1,6 +1,7 @@
 var Telegram = require('node-telegram-bot-api');
-var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ"
+var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ";
 var telegramApi = new Telegram(token, { polling: true });
+var wrapper = require('node-telegram-keyboard-wrapper');
 
 var userAnswer = [];
 
@@ -34,12 +35,13 @@ telegramApi.onText(/\/help/, (msg) => {
 });
 
 telegramApi.onText(/\/test/, (msg) => {
-    key = InlineKeyboardButton(text = "Test", callback_data="update")
-    keyboard = [[key]]
-    reply = InlineKeyboardMarkup(keyboard)
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    telegramApi.sendMessage(chat, reply);
+    keyboard = new wrapper.ReplyKeyboard();
+    keyboard.addRow("Test1",  "Test2");
+    keyboard.addRow("Test3");
+    telegramApi.sendMessage(msg.from.id, text = "Test", keyboard.open({ resize_keyboard: true }));
 });
+
+telegramApi.on("polling_error", (err) => console.log(err));
 
 telegramApi.on("callback_query", (msg) => {
     console.log(msg.from.id);
@@ -68,7 +70,7 @@ function startPoll(msg) {
 };
 
 function showHelp(msg) {
-    var text = "Puedes usar los siguientes comandos!\n" +
+    var text = "Puedes usar los siguientes comandos\n" +
                 "/start - Empieza la encuesta\n" +
                 "/restart - Reinicia la encuesta\n" +
                 "/return - Vuelve a la pregunta anterior\n";
