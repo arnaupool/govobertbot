@@ -1,9 +1,14 @@
 var Telegram = require('node-telegram-bot-api');
 var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ";
-var telegramApi = new Telegram(token, { polling: true });
+var bot = new Telegram(token, { polling: true });
 var wrapper = require('node-telegram-keyboard-wrapper');
 
 var userAnswer = [];
+var isKeyboardOpen = false;
+const keyboard = new wrapper.ReplyKeyboard();
+keyboard
+    .addRow("Test1",  "Test2")
+    .addRow("Cerrar");
 
 var questions = [
     {
@@ -13,45 +18,51 @@ var questions = [
             [{ text: "Adios", callback_data: '2' }],
         ]
     }
-]
+];
 
-telegramApi.onText(/\/start/, (msg) => {
+bot.onText(/\/start/, (msg) => {
     startPoll(msg);
     startPoll.bind(this, msg);
+    if (isKeyboardOpen) keyboard.close();
 });
 
-telegramApi.onText(/\/restart/, (msg) => {
+bot.onText(/\/restart/, (msg) => {
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    telegramApi.sendMessage(chat, "Funcion no implementada");
+    bot.sendMessage(chat, "Funcion no implementada");
 });
 
-telegramApi.onText(/\/return/, (msg) => {
+bot.onText(/\/return/, (msg) => {
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    telegramApi.sendMessage(chat, "Funcion no implementada");
+    bot.sendMessage(chat, "Funcion no implementada");
 });
 
-telegramApi.onText(/\/help/, (msg) => {
+bot.onText(/\/help/, (msg) => {
     showHelp(msg);
 });
 
-telegramApi.onText(/\/test/, (msg) => {
-    keyboard = new wrapper.ReplyKeyboard();
-    keyboard.addRow("Test1",  "Test2");
-    keyboard.addRow("Test3");
-    telegramApi.sendMessage(msg.from.id, text = "Test", keyboard.open({ resize_keyboard: true }));
+bot.onText(/\/test/, (msg) => {
+    isKeyboardOpen = true;
+    bot.sendMessage(msg.from.id, text = "Test", keyboard.open({ resize_keyboard: true }));
 });
 
-telegramApi.on("polling_error", (err) => console.log(err));
+bot.on("polling_error", (err) => console.log(err));
 
-telegramApi.on("callback_query", (msg) => {
+bot.on("message", (msg) => {
+    if (msg.text == "Cerrar" && isKeyboardOpen) {
+        bot.sendMessage(msg.from.id, "Cerrando botones", keyboard.close());
+        isKeyboardOpen != isKeyboardOpen;
+    }
+});
+
+bot.on("callback_query", (msg) => {
     console.log(msg.from.id);
     var answer = msg.data;
     switch(answer) {
         case "1":
-            telegramApi.sendMessage(msg.from.id, "Hola, como estamos");
+            bot.sendMessage(msg.from.id, "Hola, como estamos");
             break;
         case "2":
-            telegramApi.sendMessage(msg.from.id, "Venga hasta luego");
+            bot.sendMessage(msg.from.id, "Venga hasta luego");
             break;
     }
 })
@@ -66,7 +77,7 @@ function startPoll(msg) {
         })
     }
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    telegramApi.sendMessage(chat, text, options);
+    bot.sendMessage(chat, text, options);
 };
 
 function showHelp(msg) {
@@ -75,5 +86,5 @@ function showHelp(msg) {
                 "/restart - Reinicia la encuesta\n" +
                 "/return - Vuelve a la pregunta anterior\n";
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    telegramApi.sendMessage(chat, text);
+    bot.sendMessage(chat, text);
 }
