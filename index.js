@@ -33,6 +33,14 @@ telegramApi.onText(/\/help/, (msg) => {
     showHelp(msg);
 });
 
+telegramApi.onText(/\/test/, (msg) => {
+    key = InlineKeyboardButton(text = "Test", callback_data="update")
+    keyboard = [[key]]
+    reply = InlineKeyboardMarkup(keyboard)
+    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
+    telegramApi.sendMessage(chat, reply);
+});
+
 telegramApi.on("callback_query", (msg) => {
     console.log(msg.from.id);
     var answer = msg.data;
