@@ -13,7 +13,7 @@ const niveles = {
     INICIO         : 'INICIO',
     CIUDADANIA     : 'CIUDADANIA',
     RESPONSABILIDAD: 'RESPONSABILIDAD',
-    TECNOLOÍA      : 'TECNOLOGIA',
+    TECNOLOGIA      : 'TECNOLOGIA',
     COMUNICACION   : 'COMUNICACION',
     GOBIERNO       : 'GOBIERNO',
     ATRAS          : 'Atrás'
@@ -21,11 +21,11 @@ const niveles = {
 
 var nivelActual = niveles.INICIO;
 
-//#region Keyboards
+//#region Menus
 const keyboard = new wrapper.ReplyKeyboard();
 keyboard
     .addRow("CIUDADANIA", "RESPONSABILIDAD")
-    .addRow("TECNOLOÍA" , "COMUNICACION")
+    .addRow("TECNOLOGIA" , "COMUNICACION")
     .addRow("GOBIERNO"  , "ENCUESTA");
 
 var Opciones = [
@@ -42,6 +42,51 @@ var Opciones = [
             [{ text: "Ciudadano inteligente"      , callback_data: '8'  }],
             [{ text: "Conciencia cívica"          , callback_data: '9'  }],
             [{ text: "Cultura participativa"      , callback_data: '10' }],
+        ]
+    },
+    {
+        title: 'RESPONSABILIDAD',
+        buttons: [
+            [{ text: "Rendición de cuentas"         , callback_data: '1'  }],
+            [{ text: "Calidad de servicios públicos", callback_data: '2'  }],
+            [{ text: "Innovación"                   , callback_data: '3'  }],
+            [{ text: "Responsabilidad social"       , callback_data: '4'  }],
+            [{ text: "Corresponsabilidad"           , callback_data: '5'  }],
+            [{ text: "Integridad"                   , callback_data: '6'  }],
+            [{ text: "Paredes de cristal"           , callback_data: '7'  }],
+            [{ text: "Inclusividad"                 , callback_data: '8'  }],
+            [{ text: "Confianza mútua"              , callback_data: '9'  }],
+        ]
+    },
+    {
+        title: 'TECNOLOGIA',
+        buttons: [
+            [{ text: "Datos abiertos"            , callback_data: '1'  }],
+            [{ text: "Gobernanza inteligente"    , callback_data: '2'  }],
+            [{ text: "Smart city"                , callback_data: '3'  }],
+            [{ text: "Sociedad red"              , callback_data: '4'  }],
+            [{ text: "Portales de transparencia" , callback_data: '5'  }],
+            [{ text: "Portales de datos abiertos", callback_data: '6'  }],
+            [{ text: "Laboratorios de innovación", callback_data: '7'  }]
+        ]
+    },
+    {
+        title: 'COMUNICACIÓN',
+        buttons: [
+            [{ text: "Fake news"          , callback_data: '1'  }],
+            [{ text: "Periodismo de datos", callback_data: '2'  }],
+            [{ text: "Publicidad activa"  , callback_data: '3'  }],
+            [{ text: "Transparencia"      , callback_data: '4'  }]
+        ]
+    },
+    {
+        title: 'GOBIERNO',
+        buttons: [
+            [{ text: "Gobierno abierto"          , callback_data: '1'  }],
+            [{ text: "Buen gobierno"             , callback_data: '2'  }],
+            [{ text: "Buena gobernanza"          , callback_data: '3'  }],
+            [{ text: "Consejo de transparencia"  , callback_data: '4'  }],
+            [{ text: "Políticas públicas"        , callback_data: '5'  }]
         ]
     }
 ];
@@ -143,31 +188,102 @@ function handleCiudadania(msg) {
 }
 
 function handleResponsabiliadad(msg) {
-    nivelActual = niveles.RESPONSABILIDAD;
-    keyboard.close();
-    keyboard = keyboardResponsabilidad;
-    keyboard.open({ resize_keyboard: true })
+    var answer = msg.data;
+    switch(answer) {
+        case '1':
+            bot.sendMessage(msg.from.id, '1');
+            break;
+        case '2':
+            bot.sendMessage(msg.from.id, '2');
+            break;
+        case '3':
+            bot.sendMessage(msg.from.id, '3');
+            break;
+        case '4':
+            bot.sendMessage(msg.from.id, '4');
+            break;
+        case '5':
+            bot.sendMessage(msg.from.id, '5');
+            break;
+        case '6':
+            bot.sendMessage(msg.from.id, '6');
+            break;
+        case '7':
+            bot.sendMessage(msg.from.id, '7');
+            break;
+        case '8':
+            bot.sendMessage(msg.from.id, '8');
+            break;
+        case '9':
+            bot.sendMessage(msg.from.id, '9');
+            break;
+    }
 }
 
 function handleTeconologia(msg) {
-    nivelActual = niveles.TECNOLOGIA;
-    keyboard.close();
-    keyboard = keyboardTecnologia;
-    keyboard.open({ resize_keyboard: true })
+    var answer = msg.data;
+    switch(answer) {
+        case '1':
+            bot.sendMessage(msg.from.id, '1');
+            break;
+        case '2':
+            bot.sendMessage(msg.from.id, '2');
+            break;
+        case '3':
+            bot.sendMessage(msg.from.id, '3');
+            break;
+        case '4':
+            bot.sendMessage(msg.from.id, '4');
+            break;
+        case '5':
+            bot.sendMessage(msg.from.id, '5');
+            break;
+        case '6':
+            bot.sendMessage(msg.from.id, '6');
+            break;
+        case '7':
+            bot.sendMessage(msg.from.id, '7');
+            break;
+    }
 }
 
 function handleComunicacion(msg) {
-    nivelActual = niveles.COMUNICACION;
-    keyboard.close();
-    keyboard = keyboardComunicacion;
-    keyboard.open({ resize_keyboard: true })
+    var answer = msg.data;
+    switch(answer) {
+        case '1':
+            bot.sendMessage(msg.from.id, '1');
+            break;
+        case '2':
+            bot.sendMessage(msg.from.id, '2');
+            break;
+        case '3':
+            bot.sendMessage(msg.from.id, '3');
+            break;
+        case '4':
+            bot.sendMessage(msg.from.id, '4');
+            break;
+    }
 }
 
 function handleGobierno(msg) {
-    nivelActual = niveles.GOBIERNO;
-    keyboard.close();
-    keyboard = keyboardGobierno;
-    keyboard.open({ resize_keyboard: true })
+    var answer = msg.data;
+    switch(answer) {
+        case '1':
+            bot.sendMessage(msg.from.id, '1');
+            break;
+        case '2':
+            bot.sendMessage(msg.from.id, '2');
+            break;
+        case '3':
+            bot.sendMessage(msg.from.id, '3');
+            break;
+        case '4':
+            bot.sendMessage(msg.from.id, '4');
+            break;
+        case '5':
+            bot.sendMessage(msg.from.id, '5');
+            break;
+    }
 }
 //#endregion
 
@@ -178,6 +294,18 @@ bot.on("callback_query", (msg) => {
     switch(nivelActual) {
         case niveles.CIUDADANIA:
             handleCiudadania(msg);
+            break;
+        case niveles.RESPONSABILIDAD:
+            handleResponsabiliadad(msg);
+            break;
+        case niveles.TECNOLOGIA:
+            handleTeconologia(msg);
+            break;
+        case niveles.COMUNICACION:
+            handleComunicacion(msg);
+            break;
+        case niveles.GOBIERNO:
+            handleGobierno(msg);
             break;
     }
 })
