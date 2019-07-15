@@ -3,6 +3,7 @@ var Telegram = require('node-telegram-bot-api');
 var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ";
 var bot = new Telegram(token, { polling: true });
 var wrapper = require('node-telegram-keyboard-wrapper');
+var generatecsv = require('./exportCSV');
 //#endregion
 
 //mongoDB
@@ -107,9 +108,7 @@ var Opciones = [
 
 //#region Commands
 bot.onText(/\/test/, (msg) => {
-    startPoll(msg);
-    startPoll.bind(this, msg);
-    if (isKeyboardOpen) keyboard.close();
+    generatecsv.export2csv();
 });
 
 bot.onText(/\/restart/, (msg) => {
