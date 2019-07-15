@@ -3,7 +3,6 @@ var Telegram = require('node-telegram-bot-api');
 var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ";
 var bot = new Telegram(token, { polling: true });
 var wrapper = require('node-telegram-keyboard-wrapper');
-var poll = require('./pollCode.js');
 //#endregion
 
 //mongoDB
@@ -405,4 +404,16 @@ function showHelp(msg) {
                 "/return - Vuelve a la pregunta anterior\n";
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
     bot.sendMessage(chat, text);
+};
+
+function newPoll() {
+    userAnswer.push(id);
+    userAnswer.push(todayTime());
+
+    
+};
+
+function todayTime() {
+    today = new Date();
+    return current = today.getHours() + ":" + today.getMinutes();
 };
