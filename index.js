@@ -3,7 +3,7 @@ var Telegram = require('node-telegram-bot-api');
 var token = "702738997:AAHyBNRXNfzbPvEGheYQ2rLeUz4o48OE7NQ";
 var bot = new Telegram(token, { polling: true });
 var wrapper = require('node-telegram-keyboard-wrapper');
-var generatecsv = require('./exportCSV');
+var generatecsv = require('./exportCSV.js');
 //#endregion
 
 //mongoDB
