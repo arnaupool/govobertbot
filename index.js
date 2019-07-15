@@ -38,13 +38,13 @@ var nivelActual = niveles.INICIO;
 //#region Menus
 const keyboard = new wrapper.ReplyKeyboard();
 keyboard
-    .addRow("CIUDADANIA", "RESPONSABILIDAD")
-    .addRow("TECNOLOGIA" , "COMUNICACION")
+    .addRow("CIUDADANÍA", "RESPONSABILIDAD")
+    .addRow("TECNOLOGIA" , "COMUNICACIÓN")
     .addRow("GOBIERNO"  , "ENCUESTA");
 
 var Opciones = [
     {
-        title: 'CIUDADANIA',
+        title: 'CIUDADANÍA',
         buttons: [
             [{ text: "Colaboración"               , callback_data: '0.1'  }],
             [{ text: "Cocreación"                 , callback_data: '0.2'  }],
@@ -69,11 +69,11 @@ var Opciones = [
             [{ text: "Integridad"                   , callback_data: '1.6'  }],
             [{ text: "Paredes de cristal"           , callback_data: '1.7'  }],
             [{ text: "Inclusividad"                 , callback_data: '1.8'  }],
-            [{ text: "Confianza mútua"              , callback_data: '1.9'  }],
+            [{ text: "Confianza mutua"              , callback_data: '1.9'  }],
         ]
     },
     {
-        title: 'TECNOLOGIA',
+        title: 'TECNOLOGÍA',
         buttons: [
             [{ text: "Datos abiertos"            , callback_data: '2.1'  }],
             [{ text: "Gobernanza inteligente"    , callback_data: '2.2'  }],
@@ -115,12 +115,12 @@ bot.onText(/\/test/, (msg) => {
 
 bot.onText(/\/restart/, (msg) => {
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Funcion no implementada");
+    bot.sendMessage(chat, "Función no implementada");
 });
 
 bot.onText(/\/return/, (msg) => {
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Funcion no implementada");
+    bot.sendMessage(chat, "Función no implementada");
 });
 
 bot.onText(/\/help/, (msg) => {
