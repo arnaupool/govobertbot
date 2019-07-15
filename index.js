@@ -103,6 +103,28 @@ var Opciones = [
             [{ text: "Consell de transparència"  , callback_data: '4.3'  }],
             [{ text: "Polítiques públiques"      , callback_data: '4.4'  }]
         ]
+    },
+    {
+        title: 'Objectius de Desenvolupament Sostenible (ODS)',
+        buttons: [
+            [{ text: "Fi de la pobresa"                         , callback_data: '5.1'  }],
+            [{ text: "Fam zero"                                 , callback_data: '5.2'  }],
+            [{ text: "Salut i benestar"                         , callback_data: '5.3'  }],
+            [{ text: "Educació de qualitat"                     , callback_data: '5.4'  }],
+            [{ text: "Igualtat de gènere"                       , callback_data: '5.5'  }],
+            [{ text: "Aigua neta i sanejament"                  , callback_data: '5.6'  }],
+            [{ text: "Energia assequible i no contaminant"      , callback_data: '5.7'  }],
+            [{ text: "Treball decent i creixement econòmic"     , callback_data: '5.8'  }],
+            [{ text: "Indústria, innovació i infraestructura"   , callback_data: '5.9'  }],
+            [{ text: "Reducció de les desigualtats"             , callback_data: '5.10'  }],
+            [{ text: "Ciutats i comunitats sostenibles"         , callback_data: '5.11'  }],
+            [{ text: "Producció i consum responsables"          , callback_data: '5.12'  }],
+            [{ text: " Acció pel clima"                         , callback_data: '5.13'  }],
+            [{ text: "Vida submarina"                           , callback_data: '5.14'  }],
+            [{ text: "Vida d'ecosistemes terrestres"            , callback_data: '5.15'  }],
+            [{ text: "Pau, justícia i institucions sòlides"     , callback_data: '5.16'  }],
+            [{ text: "Aliances per a aconseguir els objectius"  , callback_data: '5.17'  }]
+        ]
     }
 ];
 //#endregion
@@ -162,6 +184,11 @@ bot.on("message", (msg) => {
         case niveles.GOBIERNO:
             nivelActual = niveles.GOBIERNO
             startPoll(msg, 4);
+            startPoll.bind(this, msg);
+            break;
+        case niveles.ODS:
+            nivelActual = niveles.ODS
+            startPoll(msg, 5);
             startPoll.bind(this, msg);
             break;
         default: break; //Aquí podría ir un mensaje de "No te he entendido", porque el default es para cuando el usuario envíe cualquier otro mensaje
@@ -427,6 +454,109 @@ function handleGobierno(msg) {
         });
       }); 
 }
+
+function handleOds(msg) {
+    var answer = msg.data;
+    var term;
+    switch(answer) {
+        case '5.1':
+            bot.sendMessage(msg.from.id, 'Fi de la pobresa:');
+            term = 'Fi de la pobresa';
+            bot.sendMessage(msg.from.id, 'Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
+            break;
+        case '5.2':
+            bot.sendMessage(msg.from.id, 'Fam zero:');
+            term = 'Fam zero';
+            bot.sendMessage(msg.from.id, 'És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
+            break;
+        case '5.3':
+            bot.sendMessage(msg.from.id, 'Salut i benestar:');
+            term = 'Salut i benestar';
+            bot.sendMessage(msg.from.id, 'Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
+            break;
+        case '5.4':
+            bot.sendMessage(msg.from.id, 'Educació de qualitat');
+            term = 'Educació de qualitat';
+            bot.sendMessage(msg.from.id, 'Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
+            break;
+        case '5.5':
+            bot.sendMessage(msg.from.id, 'Igualtat de gènere:');
+            term = 'Igualtat de gènere';
+            bot.sendMessage(msg.from.id, 'Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
+            break;
+        case '5.6':
+            bot.sendMessage(msg.from.id, 'Aigua neta i sanejament:');
+            term = 'Aigua neta i sanejament';
+            bot.sendMessage(msg.from.id, 'Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
+            break;
+        case '5.7': 
+            bot.sendMessage(msg.from.id, 'Energia assequible i no contaminant:');
+            term = 'Energia assequible i no contaminant';
+            bot.sendMessage(msg.from.id, 'Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
+            break;
+        case '5.8':
+            bot.sendMessage(msg.from.id, 'Treball decent i creixement econòmic:');
+            term = 'Treball decent i creixement econòmic';
+            bot.sendMessage(msg.from.id, 'Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
+            break;
+        case '5.9':
+            bot.sendMessage(msg.from.id, 'Indústria, innovació i infraestructura:');
+            term = 'Indústria, innovació i infraestructura';
+            bot.sendMessage(msg.from.id, 'Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
+            break;
+        case '5.10':
+            bot.sendMessage(msg.from.id, 'Reducció de les desigualtats:');
+            term = 'Reducció de les desigualtats';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break; 
+        case '5.11':
+            bot.sendMessage(msg.from.id, 'Ciutats i comunitats sostenibles:');
+            term = 'Ciutats i comunitats sostenibles';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.12':
+            bot.sendMessage(msg.from.id, 'Producció i consum responsables:');
+            term = 'Producció i consum responsables';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.13':
+            bot.sendMessage(msg.from.id, 'Acció pel clima:');
+            term = 'Acció pel clima';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.14':
+            bot.sendMessage(msg.from.id, 'Vida submarina:');
+            term = 'Vida submarina';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.15':
+            bot.sendMessage(msg.from.id, 'Vida d\'ecosistemes terrestres:');
+            term = 'Vida d\'ecosistemes terrestres';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.16':
+            bot.sendMessage(msg.from.id, 'Pau, justícia i institucions sòlides:');
+            term = 'Pau, justícia i institucions sòlides';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+        case '5.17':
+            bot.sendMessage(msg.from.id, 'Aliances per a aconseguir els objectius:');
+            term = 'Aliances per a aconseguir els objectius';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            break;
+    }
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("botdb");
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
+          if (err) throw err;
+          console.log(msg.from.id + "ha consultat:" + term);
+          db.close();
+        });
+      }); 
+}
 //#endregion
 
 bot.on("polling_error", (err) => console.log(err));
@@ -448,6 +578,9 @@ bot.on("callback_query", (msg) => {
             break;
         case niveles.GOBIERNO:
             handleGobierno(msg);
+            break;
+        case niveles.ODS:
+            handleOds(msg);
             break;
     }
 })
