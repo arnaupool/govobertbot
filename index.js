@@ -30,6 +30,7 @@ const niveles = {
     TECNOLOGIA      : 'TECNOLOGIA',
     COMUNICACION    : 'COMUNICACION',
     GOBIERNO        : 'GOBIERNO',
+    ODS             : 'ODS',
     ATRAS           : 'Atrás'
 }
 
@@ -40,7 +41,7 @@ const keyboard = new wrapper.ReplyKeyboard();
 keyboard
     .addRow("CIUDADANÍA", "RESPONSABILIDAD")
     .addRow("TECNOLOGIA" , "COMUNICACIÓN")
-    .addRow("GOBIERNO"  , "ENCUESTA");
+    .addRow("GOBIERNO"  , "ODS");
 
 var Opciones = [
     {
@@ -130,7 +131,7 @@ bot.onText(/\/help/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Bienvenido al bot del proyecto \n '¿Te lo cuento?'. \n ¿Qué quieres que te cuente? ;)",
+    text = "Benvingut al bot del projecte \n 'T'ho conte?' per a la divulgació i educació en termes de govern obert. \n Qué vols que et conte? ;)",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -398,7 +399,7 @@ function startPoll(msg, index) {
 };
 
 function showHelp(msg) {
-    var text = "Puedes usar los siguientes comandos\n" +
+    var text = "Pots utilitzar els seguents comandos\n" +
                 "/start - Inicio del bot\n" +
                 "/restart - Reinicia la encuesta\n" +
                 "/return - Vuelve a la pregunta anterior\n";
