@@ -25,13 +25,13 @@ var isKeyboardOpen = false;
 
 //#region Variables navegar
 const niveles = {
-    INICIO         : 'INICIO',
-    CIUDADANIA     : 'CIUDADANIA',
-    RESPONSABILIDAD: 'RESPONSABILIDAD',
+    INICIO          : 'INICIO',
+    CIUDADANIA      : 'CIUDADANIA',
+    RESPONSABILIDAD : 'RESPONSABILIDAD',
     TECNOLOGIA      : 'TECNOLOGIA',
-    COMUNICACION   : 'COMUNICACION',
-    GOBIERNO       : 'GOBIERNO',
-    ATRAS          : 'Atrás'
+    COMUNICACION    : 'COMUNICACION',
+    GOBIERNO        : 'GOBIERNO',
+    ATRAS           : 'Atrás'
 }
 
 var nivelActual = niveles.INICIO;
@@ -131,7 +131,7 @@ bot.onText(/\/help/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Bienvenido al bot del proyecto \n '¿Te lo cuento?'. \n ¿Que quieres que te cuente? ;)",
+    text = "Bienvenido al bot del proyecto \n '¿Te lo cuento?'. \n ¿Qué quieres que te cuente? ;)",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -166,6 +166,7 @@ bot.on("message", (msg) => {
             startPoll(msg, 4);
             startPoll.bind(this, msg);
             break;
+        default: break; //Aquí podría ir un mensaje de "No te he entendido", porque el default es para cuando el usuario envíe cualquier otro mensaje
     }
 });
 
@@ -236,7 +237,7 @@ function handleCiudadania(msg) {
       }); 
 }
 
-function handleResponsabiliadad(msg) {
+function handleResponsabilidad(msg) {
     var answer = msg.data;
     switch(answer) {
         case '1.1':
@@ -278,13 +279,13 @@ function handleResponsabiliadad(msg) {
     }
 }
 
-function handleTeconologia(msg) {
+function handleTecnologia(msg) {
     var answer = msg.data;
     switch(answer) {
         case '2.1':
-                bot.sendMessage(msg.from.id, 'Datos abiertos:');
-                bot.sendMessage(msg.from.id, 'Los datos abiertos son aquellos datos de los que dispone la Administración, en formatos digitales, estandarizados y abiertos, que pueden ser utilizados, reutilizados y redistribuidos libremente por cualquier persona.');
-                break;
+            bot.sendMessage(msg.from.id, 'Datos abiertos:');
+            bot.sendMessage(msg.from.id, 'Los datos abiertos son aquellos datos de los que dispone la Administración, en formatos digitales, estandarizados y abiertos, que pueden ser utilizados, reutilizados y redistribuidos libremente por cualquier persona.');
+            break;
         case '2.2':
             bot.sendMessage(msg.from.id, 'Gobernanza inteligente:');
             bot.sendMessage(msg.from.id, 'Nueva forma de gobernar con un conjunto de gobiernos y administraciones públicas que utilizan de forma sofisticada las tecnologías de información y comunicación para interconectar e integrar información, procesos, instituciones e infraestructuras físicas para servir mejor a sus comunidades.');
@@ -370,10 +371,10 @@ bot.on("callback_query", (msg) => {
             handleCiudadania(msg);
             break;
         case niveles.RESPONSABILIDAD:
-            handleResponsabiliadad(msg);
+            handleResponsabilidad(msg);
             break;
         case niveles.TECNOLOGIA:
-            handleTeconologia(msg);
+            handleTecnologia(msg);
             break;
         case niveles.COMUNICACION:
             handleComunicacion(msg);
