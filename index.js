@@ -99,8 +99,9 @@ var Opciones = [
         title: 'GOVERN',
         buttons: [
             [{ text: "Govern obert"              , callback_data: '4.1'  }],
-            [{ text: "Consell de transparència"  , callback_data: '4.2'  }],
-            [{ text: "Polítiques públiques"      , callback_data: '4.3'  }]
+            [{ text: "Bon Govern"                , callback_data: '4.2'  }],
+            [{ text: "Consell de transparència"  , callback_data: '4.3'  }],
+            [{ text: "Polítiques públiques"      , callback_data: '4.4'  }]
         ]
     }
 ];
@@ -225,7 +226,8 @@ function handleCiudadania(msg) {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -264,27 +266,32 @@ function handleResponsabilidad(msg) {
             bot.sendMessage(msg.from.id, 'Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
             break;
         case '1.6':
-            bot.sendMessage(msg.from.id, 'Integridad:');
-            bot.sendMessage(msg.from.id, 'Actuar en todo momento con rectitud, lealtad, honradez, imparcialidad y buena fe.');
+            bot.sendMessage(msg.from.id, 'Integritat:');
+            term = 'Integritat'
+            bot.sendMessage(msg.from.id, 'Actuar en tot moment amb rectitud, lleialtat, honradesa, imparcialitat i bona fe.');
             break;
         case '1.7':
-            bot.sendMessage(msg.from.id, 'Paredes de cristal:');
-            bot.sendMessage(msg.from.id, 'Metáfora que explica el reto de implantar una administración pública totalmente transparente en la que la ciudadanía pueda conocer qué hacen los gobierno, así como los actos y las decisiones que se toman desde los poderes públicos.');
+            bot.sendMessage(msg.from.id, 'Parets de cristall:');
+            term = 'Parets de cristall';
+            bot.sendMessage(msg.from.id, 'Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.');
             break;
         case '1.8':
-            bot.sendMessage(msg.from.id, 'Inclusividad:');
-            bot.sendMessage(msg.from.id, 'Rechazar aquellas acciones que suponen excluir a grupos de personas por razones socio-económicas, de sexo, etnia, religión, ideas políticas o por tener algún tipo de discapacidad física o intelectual.');
+            bot.sendMessage(msg.from.id, 'Inclusivitat:');
+            term = 'Inclusivitat';
+            bot.sendMessage(msg.from.id, 'Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.');
             break;
         case '1.9':
-            bot.sendMessage(msg.from.id, 'Confianza mutua:');
-            bot.sendMessage(msg.from.id, 'Creer en los gobiernos y administraciones públicas, de la misma manera que ellos también tienen que creer en los ciudadanos y ciudadanas.');
+            bot.sendMessage(msg.from.id, 'Confiança mútua:');
+            term = 'Confiança mútua'
+            bot.sendMessage(msg.from.id, 'Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.');
             break;
     }
    
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -295,40 +302,48 @@ function handleResponsabilidad(msg) {
 
 function handleTecnologia(msg) {
     var answer = msg.data;
+    var term;
     switch(answer) {
         case '2.1':
-            bot.sendMessage(msg.from.id, 'Datos abiertos:');
-            bot.sendMessage(msg.from.id, 'Los datos abiertos son aquellos datos de los que dispone la Administración, en formatos digitales, estandarizados y abiertos, que pueden ser utilizados, reutilizados y redistribuidos libremente por cualquier persona.');
+            bot.sendMessage(msg.from.id, 'Dades obertes:');
+            term = 'Dades obertes';
+            bot.sendMessage(msg.from.id, 'Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.');
             break;
         case '2.2':
-            bot.sendMessage(msg.from.id, 'Gobernanza inteligente:');
-            bot.sendMessage(msg.from.id, 'Nueva forma de gobernar con un conjunto de gobiernos y administraciones públicas que utilizan de forma sofisticada las tecnologías de información y comunicación para interconectar e integrar información, procesos, instituciones e infraestructuras físicas para servir mejor a sus comunidades.');
+            bot.sendMessage(msg.from.id, 'Governança intel·ligent:');
+            term = 'Governança intel·ligent';
+            bot.sendMessage(msg.from.id, 'Ús de noves tecnologies com a eina per a millorar la manera de governar.');
             break;
         case '2.3':
-            bot.sendMessage(msg.from.id, 'Smart City:');
-            bot.sendMessage(msg.from.id, 'Es una "ciudad inteligente" capaz de utilizar la tecnología de la información y comunicación (TIC) con el objetivo de crear mejores infraestructuras para la ciudadanía.');
+            bot.sendMessage(msg.from.id, 'Bretxa digital:');
+            term = 'Bretxa digital';
+            bot.sendMessage(msg.from.id, 'Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.');
             break;
         case '2.4':
-            bot.sendMessage(msg.from.id, 'Sociedad red:');
-            bot.sendMessage(msg.from.id, 'Es una sociedad basada en redes de comunicación y digitalizada en todos los aspectos de la vida, la política, la economía y las relaciones personales.');
+            bot.sendMessage(msg.from.id, 'Smart City:');
+            term = 'Smart City';
+            bot.sendMessage(msg.from.id, 'És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.');
             break;
         case '2.5':
-            bot.sendMessage(msg.from.id, 'Portales de transparencia:');
-            bot.sendMessage(msg.from.id, 'Son plataformas digitales que son el instrumento básico y general para facilitar a la ciudadanía la información de forma integrada del sector público.');
+            bot.sendMessage(msg.from.id, 'Portals de transparència:');
+            term = 'Portals de transparència';
+            bot.sendMessage(msg.from.id, 'Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.');
             break;
         case '2.6':
-            bot.sendMessage(msg.from.id, 'Portales de datos abiertos:');
-            bot.sendMessage(msg.from.id, 'Son plataformas digitales que sirven para almacenar, compartir, conectar y visualizar bases de datos. Son el punto de acceso a la estrategia de una organización por abrir sus datos y un punto de encuentro entre la organización, las empresas, los ciudadanos, los desarrolladores informáticos y los periodistas.');
+            bot.sendMessage(msg.from.id, 'Portals de dades obertes:');
+            term = 'Portals de dades obertes';
+            bot.sendMessage(msg.from.id, 'Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.');
             break;
         case '2.7':
-            bot.sendMessage(msg.from.id, 'Laboratorios de innovación:');
-            bot.sendMessage(msg.from.id, 'Son espacios para experimentar con nuevas formas de generar valor público, modernizar la relación con la ciudadanía, aportar nuevos canales de participación y colaboración.');
+            bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació:');
+            bot.sendMessage(msg.from.id, 'Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.');
             break;
     }
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -339,28 +354,34 @@ function handleTecnologia(msg) {
 
 function handleComunicacion(msg) {
     var answer = msg.data;
+    var term;
     switch(answer) {
         case '3.1':
             bot.sendMessage(msg.from.id, 'Fake news:');
-            bot.sendMessage(msg.from.id, 'Toda aquella información fabricada y publicada a propósito para engañar e inducir a las personas a creer mentiras o poner en duda hechos verificables.');
+            term = 'Fake news'
+            bot.sendMessage(msg.from.id, 'Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.');
             break;
         case '3.2':
-            bot.sendMessage(msg.from.id, 'Periodismo de datos:');
-            bot.sendMessage(msg.from.id, 'Es una manera de elaborar noticias de una forma clara y comprensible basándose en datos abiertos.');
+            bot.sendMessage(msg.from.id, 'Periodisme de dades:');
+            term = 'Periodisme de dades'
+            bot.sendMessage(msg.from.id, 'És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.');
             break;
         case '3.3':
-            bot.sendMessage(msg.from.id, 'Publicidad activa:');
-            bot.sendMessage(msg.from.id, 'La publicidad activa es la obligación de publicar ciertas informaciones y datos en los portales de transparencia de las administraciones públicas.');
+            bot.sendMessage(msg.from.id, 'Publicitat activa:');
+            term = 'Publicitat activa';
+            bot.sendMessage(msg.from.id, 'Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.');
             break;
         case '3.4':
-            bot.sendMessage(msg.from.id, 'Transparencia:');
-            bot.sendMessage(msg.from.id, 'La transparencia compromete a las AAPP a informar a la ciudadanía los resultados de la evaluación de los servicios que prestan.');
+            bot.sendMessage(msg.from.id, 'Transparència:');
+            term = 'Transparència'
+            bot.sendMessage(msg.from.id, 'Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.');
             break;
     }
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -371,32 +392,34 @@ function handleComunicacion(msg) {
 
 function handleGobierno(msg) {
     var answer = msg.data;
+    var term;
     switch(answer) {
         case '4.1':
-            bot.sendMessage(msg.from.id, 'Gobierno abierto:');
-            bot.sendMessage(msg.from.id, 'Tiene como objetivo que la ciudadanía colabore en la creación y mejora de servicios públicos, la consolidación de la transparencia y la rendición de cuentas.');
+            bot.sendMessage(msg.from.id, 'Govern obert:');
+            term = 'Govern obert';
+            bot.sendMessage(msg.from.id, 'Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.');
             break;
         case '4.2':
-            bot.sendMessage(msg.from.id, 'Buen Gobierno:');
-            bot.sendMessage(msg.from.id, 'Forma de ejercicio del poder caracterizada por la eficiencia, la transparencia, la rendición de cuentas, la participación ciudadana y el estado de derecho, que manifiesta la decisión del gobierno de utilizar los recursos disponibles a favor del desarrollo económico y social.');
+            bot.sendMessage(msg.from.id, 'Bon Govern:');
+            term = 'Bon govern'
+            bot.sendMessage(msg.from.id, 'Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.');
             break;
         case '4.3':
-            bot.sendMessage(msg.from.id, 'Buena Gobernanza:');
-            bot.sendMessage(msg.from.id, 'Promueve la equidad, la participación, el pluralismo, la transparencia, la responsabilidad y el estado de derecho, de modo que sea efectivo, eficiente y duradero. Los principios son los que persiguen mejorar los procesos de toma de decisiones para fortalecer la democracia y contribuir el desarrollo económico y social.');
+            bot.sendMessage(msg.from.id, 'Consell de transparència:');
+            term = 'Consell de transparència';
+            bot.sendMessage(msg.from.id, 'Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.');
             break;
         case '4.4':
-            bot.sendMessage(msg.from.id, 'Consejo de transparencia:');
-            bot.sendMessage(msg.from.id, 'Organismo encargado de velar por la transparencia de la actividad pública y garantizar el derecho de acceso a la información que tienen los ciudadanos.');
-            break;
-        case '4.5':
-            bot.sendMessage(msg.from.id, 'Políticas públicas:');
-            bot.sendMessage(msg.from.id, 'Proyectos o actividades que un estado diseña y gestiona a través de un Gobierno y una Administración Pública para satisfacer las necesidades de los ciudadanos.');
+            bot.sendMessage(msg.from.id, 'Polítiques públiques:');
+            term = 'Polítiques públiques'
+            bot.sendMessage(msg.from.id, 'Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.');
             break;
     }
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        today = new Date();
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
