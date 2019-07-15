@@ -24,14 +24,14 @@ var isKeyboardOpen = false;
 
 //#region Variables navegar
 const niveles = {
-    INICIO          : 'INICIO',
-    CIUDADANIA      : 'CIUDADANIA',
-    RESPONSABILIDAD : 'RESPONSABILIDAD',
+    INICIO          : 'INICI',
+    CIUDADANIA      : 'CIUTADANIA',
+    RESPONSABILIDAD : 'RESPONSABILITAT',
     TECNOLOGIA      : 'TECNOLOGIA',
-    COMUNICACION    : 'COMUNICACION',
-    GOBIERNO        : 'GOBIERNO',
+    COMUNICACION    : 'COMUNICACIÓ',
+    GOBIERNO        : 'GOVERN',
     ODS             : 'ODS',
-    ATRAS           : 'Atrás'
+    ATRAS           : 'Anterior'
 }
 
 var nivelActual = niveles.INICIO;
@@ -39,69 +39,67 @@ var nivelActual = niveles.INICIO;
 //#region Menus
 const keyboard = new wrapper.ReplyKeyboard();
 keyboard
-    .addRow("CIUDADANÍA", "RESPONSABILIDAD")
-    .addRow("TECNOLOGIA" , "COMUNICACIÓN")
-    .addRow("GOBIERNO"  , "ODS");
+    .addRow("CIUTADANIA", "RESPONSABILITAT")
+    .addRow("TECNOLOGIA" , "COMUNICACIÓ")
+    .addRow("GOVERN"  , "ODS");
 
 var Opciones = [
     {
-        title: 'CIUDADANÍA',
+        title: 'CIUTADANIA',
         buttons: [
-            [{ text: "Colaboración"               , callback_data: '0.1'  }],
-            [{ text: "Cocreación"                 , callback_data: '0.2'  }],
-            [{ text: "Empoderamiento ciudadano"   , callback_data: '0.3'  }],
-            [{ text: "Presupuestos participativos", callback_data: '0.4'  }],
-            [{ text: "Participación ciudadana"    , callback_data: '0.5'  }],
-            [{ text: "Codiseño"                   , callback_data: '0.6'  }],
-            [{ text: "Derecho de acceso"          , callback_data: '0.7'  }],
-            [{ text: "Ciudadano inteligente"      , callback_data: '0.8'  }],
-            [{ text: "Conciencia cívica"          , callback_data: '0.9'  }],
-            [{ text: "Cultura participativa"      , callback_data: '0.10' }],
+            [{ text: "Col·laboració"                        , callback_data: '0.1'  }],
+            [{ text: "Cocreació"                            , callback_data: '0.2'  }],
+            [{ text: "Apoderament ciutadà"                  , callback_data: '0.3'  }],
+            [{ text: "Compromís ciutadà"                    , callback_data: '0.4'  }],
+            [{ text: "Pressupostos participatius"           , callback_data: '0.5'  }],
+            [{ text: "Participació ciutadana"               , callback_data: '0.6'  }],
+            [{ text: "Dret d'accés a la informació pública" , callback_data: '0.7'  }],
+            [{ text: "Ciutadania Intel·ligent"              , callback_data: '0.8'  }],
+            [{ text: "Consciència cívica"                   , callback_data: '0.9'  }],
+            [{ text: "Cultura participativa"                , callback_data: '0.10' }],
         ]
     },
     {
-        title: 'RESPONSABILIDAD',
+        title: 'RESPONSABILITAT',
         buttons: [
-            [{ text: "Rendición de cuentas"         , callback_data: '1.1'  }],
-            [{ text: "Calidad de servicios públicos", callback_data: '1.2'  }],
-            [{ text: "Innovación"                   , callback_data: '1.3'  }],
-            [{ text: "Responsabilidad social"       , callback_data: '1.4'  }],
-            [{ text: "Corresponsabilidad"           , callback_data: '1.5'  }],
-            [{ text: "Integridad"                   , callback_data: '1.6'  }],
-            [{ text: "Paredes de cristal"           , callback_data: '1.7'  }],
-            [{ text: "Inclusividad"                 , callback_data: '1.8'  }],
-            [{ text: "Confianza mutua"              , callback_data: '1.9'  }],
+            [{ text: "Rendició de comptes"          , callback_data: '1.1'  }],
+            [{ text: "Qualitat de serveis públics"  , callback_data: '1.2'  }],
+            [{ text: "Innovació"                    , callback_data: '1.3'  }],
+            [{ text: "Responsabilitat social"       , callback_data: '1.4'  }],
+            [{ text: "Corresponsabilitat"           , callback_data: '1.5'  }],
+            [{ text: "Integritat"                   , callback_data: '1.6'  }],
+            [{ text: "Parets de cristall"           , callback_data: '1.7'  }],
+            [{ text: "Inclusivitat"                 , callback_data: '1.8'  }],
+            [{ text: "Confiança mútua"              , callback_data: '1.9'  }],
         ]
     },
     {
-        title: 'TECNOLOGÍA',
+        title: 'TECNOLOGIA',
         buttons: [
-            [{ text: "Datos abiertos"            , callback_data: '2.1'  }],
-            [{ text: "Gobernanza inteligente"    , callback_data: '2.2'  }],
-            [{ text: "Smart city"                , callback_data: '2.3'  }],
-            [{ text: "Sociedad red"              , callback_data: '2.4'  }],
-            [{ text: "Portales de transparencia" , callback_data: '2.5'  }],
-            [{ text: "Portales de datos abiertos", callback_data: '2.6'  }],
-            [{ text: "Laboratorios de innovación", callback_data: '2.7'  }]
+            [{ text: "Dades obertes"             , callback_data: '2.1'  }],
+            [{ text: "Governança intel·ligent"   , callback_data: '2.2'  }],
+            [{ text: "Bretxa digital"            , callback_data: '2.3'  }],
+            [{ text: "Smart City"                , callback_data: '2.4'  }],
+            [{ text: "Portals de transparència"  , callback_data: '2.5'  }],
+            [{ text: "Portals de dades obertes"  , callback_data: '2.6'  }],
+            [{ text: "Laboratoris d'innovació"   , callback_data: '2.7'  }]
         ]
     },
     {
-        title: 'COMUNICACIÓN',
+        title: 'COMUNICACIÓ',
         buttons: [
             [{ text: "Fake news"          , callback_data: '3.1'  }],
-            [{ text: "Periodismo de datos", callback_data: '3.2'  }],
-            [{ text: "Publicidad activa"  , callback_data: '3.3'  }],
-            [{ text: "Transparencia"      , callback_data: '3.4'  }]
+            [{ text: "Periodisme de dades", callback_data: '3.2'  }],
+            [{ text: "Publicitat activa"  , callback_data: '3.3'  }],
+            [{ text: "Transparència"      , callback_data: '3.4'  }]
         ]
     },
     {
-        title: 'GOBIERNO',
+        title: 'GOVERN',
         buttons: [
-            [{ text: "Gobierno abierto"          , callback_data: '4.1'  }],
-            [{ text: "Buen gobierno"             , callback_data: '4.2'  }],
-            [{ text: "Buena gobernanza"          , callback_data: '4.3'  }],
-            [{ text: "Consejo de transparencia"  , callback_data: '4.4'  }],
-            [{ text: "Políticas públicas"        , callback_data: '4.5'  }]
+            [{ text: "Govern obert"              , callback_data: '4.1'  }],
+            [{ text: "Consell de transparència"  , callback_data: '4.2'  }],
+            [{ text: "Polítiques públiques"      , callback_data: '4.3'  }]
         ]
     }
 ];
@@ -131,7 +129,7 @@ bot.onText(/\/help/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte \n 'T'ho conte?' per a la divulgació i educació en termes de govern obert. \n Qué vols que et conte? ;)",
+    text = "Benvingut al bot del projecte \n 'T'ho conte?' \n per a la divulgació i educació en termes de govern obert. \n Que vols que et conte? ;)",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -175,63 +173,63 @@ function handleCiudadania(msg) {
     var term;
     switch(answer) {
         case '0.1':
-            bot.sendMessage(msg.from.id, 'Colaboración:');
-            term = 'Colaboración';
-            bot.sendMessage(msg.from.id, 'Es la creación de nuevos espacios de encuentro, diálogo y trabajo donde participan todas los gobiernos y administraciones públicas, incluyendo a la ciudadanía.');
+            bot.sendMessage(msg.from.id, 'Col·laboració:');
+            term = 'Col·laboració';
+            bot.sendMessage(msg.from.id, 'Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
             break;
         case '0.2':
-            bot.sendMessage(msg.from.id, 'Cocreación:');
-            term = 'Cocreación';
-            bot.sendMessage(msg.from.id, 'Se trata de poner en práctica la colaboración mediante metodologías que permiten caminar hacia soluciones basadas en la innovación para problemas sociales reales.');
+            bot.sendMessage(msg.from.id, 'Cocreació:');
+            term = 'Cocreació';
+            bot.sendMessage(msg.from.id, 'És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
             break;
         case '0.3':
-            bot.sendMessage(msg.from.id, 'Empoderamiento ciudadano:');
-            term = 'Empoderamiento ciudadano';
-            bot.sendMessage(msg.from.id, 'Fomenta la participación activa de los ciudadanos en los procesos de gobierno y la toma de decisiones para impulsar cambios positivos en sus comunidades.');
+            bot.sendMessage(msg.from.id, 'Apoderament ciutadà:');
+            term = 'Apoderament ciutadà';
+            bot.sendMessage(msg.from.id, 'Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
             break;
         case '0.4':
-            bot.sendMessage(msg.from.id, 'Presupuestos participativos:');
-            term = 'Presupuestos participativos';
-            bot.sendMessage(msg.from.id, 'Participación de la ciudadanía mediante la colaboración en la elaboración, administración y ejecución de los recursos de su ciudad decidiendo sobre el destino de parte de dichos recursos municipales.');
+            bot.sendMessage(msg.from.id, 'Compromís ciutadà:');
+            term = 'Compromís ciutadà';
+            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
             break;
         case '0.5':
-            bot.sendMessage(msg.from.id, 'Participación ciudadana:');
-            term = 'Participación ciudadana';
-            bot.sendMessage(msg.from.id, 'Conjunto de maneras que tiene la población para acceder a las decisiones que tome el gobierno, de manera independiente, sin necesidad de formar parte de la administración pública o del partido político.');
+            bot.sendMessage(msg.from.id, 'Pressupostos participatius:');
+            term = 'Pressupostos participatius';
+            bot.sendMessage(msg.from.id, 'Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
             break;
         case '0.6':
-            bot.sendMessage(msg.from.id, 'Codiseño:');
-            term = 'Codiseño';
-            bot.sendMessage(msg.from.id, 'Incorporar en el proceso de diseño a las personas implicadas o que utilizarán el producto o servicio para que éste responda a sus necesidades y sea más útil.');
+            bot.sendMessage(msg.from.id, 'Participació ciutadana:');
+            term = 'Participació ciutadana';
+            bot.sendMessage(msg.from.id, 'Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
             break;
         case '0.7':
-            bot.sendMessage(msg.from.id, 'Derecho de acceso:');
-            term = 'Derecho de acceso';
-            bot.sendMessage(msg.from.id, 'Derecho que tiene toda persona a obtener información sobre el tratamiento de sus datos personales.');
+            bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública:');
+            term = 'Dret d\'accés a la informació pública';
+            bot.sendMessage(msg.from.id, 'Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
             break;
-        case '0.8':
-            bot.sendMessage(msg.from.id, 'Ciudadano Inteligente:');
-            term = 'Ciudadano Inteligente';
-            bot.sendMessage(msg.from.id, 'Herramienta que tiene el ciudadano para fortalecer la democracia.');
+        case '0.8': 
+            bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent:');
+            term = 'Ciutadania Intel·ligent';
+            bot.sendMessage(msg.from.id, 'Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
             break;
         case '0.9':
-            bot.sendMessage(msg.from.id, 'Conciencia cívica:');
-            term = 'Conciencia cívica';
-            bot.sendMessage(msg.from.id, 'Es la que nos indica cómo debemos comportarnos los ciudadanos para la consolidación de una democracia real y participativa donde se reconozca la pluralidad la tolerancia y el reconocimiento de la dignidad individual.');
+            bot.sendMessage(msg.from.id, 'Consciència cívica:');
+            term = 'Consciència cívica';
+            bot.sendMessage(msg.from.id, 'Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
             break;
         case '0.10':
             bot.sendMessage(msg.from.id, 'Cultura participativa:');
             term = 'Cultura participativa';
-            bot.sendMessage(msg.from.id, 'Cultura destinada al desarrollo de las habilidades de expresión y comunicación de opiniones e ideas propias y el compromiso cívico del ciudadano, asumiendo responsabilidades.');
+            bot.sendMessage(msg.from.id, 'Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
             break; 
     }
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("botdb");
-        var myobj = { userid: msg.from.id , concept: "ciudadania", termino: term };
-        dbo.collection("consultas").insertOne(myobj, function(err, res) {
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
-          console.log("1 document inserted");
+          console.log(msg.from.id + "ha consultat:" + term);
           db.close();
         });
       }); 
@@ -239,26 +237,32 @@ function handleCiudadania(msg) {
 
 function handleResponsabilidad(msg) {
     var answer = msg.data;
+    var term;
     switch(answer) {
         case '1.1':
-            bot.sendMessage(msg.from.id, 'Rendición de cuentas:');
-            bot.sendMessage(msg.from.id, 'Obligación de los gobiernos y administraciones públicas a dar explicaciones sobre sus acciones y asumir la responsabilidad de las decisiones que se adoptan.');
+            bot.sendMessage(msg.from.id, 'Rendició de comptes:');
+            term = 'Rendició de comptes';
+            bot.sendMessage(msg.from.id, 'Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.');
             break;
         case '1.2':
-            bot.sendMessage(msg.from.id, 'Calidad de servicios públicos:');
-            bot.sendMessage(msg.from.id, 'Recurso del Estado para compensar las desigualdades de la población para que el conjunto de ciudadanos reciba los mismos servicios.');
+            bot.sendMessage(msg.from.id, 'Qualitat de serveis públics:');
+            term = 'Qualitat de serveis públics';
+            bot.sendMessage(msg.from.id, 'Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.');
             break;
         case '1.3':
-            bot.sendMessage(msg.from.id, 'Innovación:');
-            bot.sendMessage(msg.from.id, 'Ser capaz de desarrollar nuevas maneras de hacer las cosas, al margen de cómo se han hecho en el pasado, y explorar formas alternativas de pensar.');
+            bot.sendMessage(msg.from.id, 'Innovació:');
+            term = 'Innovació';
+            bot.sendMessage(msg.from.id, 'Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.');
             break;
         case '1.4':
             bot.sendMessage(msg.from.id, 'Responsabilidad social:');
-            bot.sendMessage(msg.from.id, 'Compromiso de la ciudadanía y administraciones para tomar decisiones positivas para la sociedad.');
+            term = 'Responsabilidad social';
+            bot.sendMessage(msg.from.id, 'Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.');
             break;
         case '1.5':
-            bot.sendMessage(msg.from.id, 'Corresponsabilidad:');
-            bot.sendMessage(msg.from.id, 'Responsabilidad compartida entre dos o más personas u organizaciones, para buscar soluciones a los problemas.');
+            bot.sendMessage(msg.from.id, 'Corresponsabilitat:');
+            term = 'Corresponsabilitat';
+            bot.sendMessage(msg.from.id, 'Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
             break;
         case '1.6':
             bot.sendMessage(msg.from.id, 'Integridad:');
@@ -277,6 +281,17 @@ function handleResponsabilidad(msg) {
             bot.sendMessage(msg.from.id, 'Creer en los gobiernos y administraciones públicas, de la misma manera que ellos también tienen que creer en los ciudadanos y ciudadanas.');
             break;
     }
+   
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("botdb");
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
+          if (err) throw err;
+          console.log(msg.from.id + "ha consultat:" + term);
+          db.close();
+        });
+      }); 
 }
 
 function handleTecnologia(msg) {
@@ -311,6 +326,16 @@ function handleTecnologia(msg) {
             bot.sendMessage(msg.from.id, 'Son espacios para experimentar con nuevas formas de generar valor público, modernizar la relación con la ciudadanía, aportar nuevos canales de participación y colaboración.');
             break;
     }
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("botdb");
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
+          if (err) throw err;
+          console.log(msg.from.id + "ha consultat:" + term);
+          db.close();
+        });
+      }); 
 }
 
 function handleComunicacion(msg) {
@@ -333,6 +358,16 @@ function handleComunicacion(msg) {
             bot.sendMessage(msg.from.id, 'La transparencia compromete a las AAPP a informar a la ciudadanía los resultados de la evaluación de los servicios que prestan.');
             break;
     }
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("botdb");
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
+          if (err) throw err;
+          console.log(msg.from.id + "ha consultat:" + term);
+          db.close();
+        });
+      }); 
 }
 
 function handleGobierno(msg) {
@@ -359,6 +394,16 @@ function handleGobierno(msg) {
             bot.sendMessage(msg.from.id, 'Proyectos o actividades que un estado diseña y gestiona a través de un Gobierno y una Administración Pública para satisfacer las necesidades de los ciudadanos.');
             break;
     }
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("botdb");
+        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, d: getUTCDate(), m: getMonth(), a: getFullYear(), hora: getHours(), min: getMinutes() };
+        dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
+          if (err) throw err;
+          console.log(msg.from.id + "ha consultat:" + term);
+          db.close();
+        });
+      }); 
 }
 //#endregion
 
