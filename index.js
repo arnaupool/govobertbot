@@ -23,12 +23,8 @@ MongoClient.connect(url, function(err, db) {
 var userAnswer = [];
 var isKeyboardOpen = false;
 var tiempoCsv = 12;                             //Tiempo entre backups de csv
-var interval = tiempoCsv * 60 * 60 * 1000;       //En ms
-
-var func = setInterval(function(){
-    generatecsv.export2csv(function () {
-        console.log("Documento de registros generado. " + new Date());});
-    }, interval);
+var interval =tiempoCsv * 60 * 60 * 1000;       //En ms
+var func = setInterval(function(){ generatecsv.export2csv(); }, interval);
 
 //#region Variables navegar
 const niveles = {
@@ -138,30 +134,16 @@ var Opciones = [
 
 //#region Commands
 bot.onText(/\/csv/, (msg) => {
-    bot.sendMessage(msg.from.id, "Generant document... Estarà llest en uns segons.");
-    generatecsv.export2csv(function(date) {
-        console.log("Documento generado.");
-        var minutes = parseInt(date.getMinutes());
-        var hours = parseInt(date.getHours());
-        var days = parseInt(date.getDate());
-        if (minutes < 10) {minutes = 0 + "" + date.getMinutes();}
-        if (hours < 10)   {hours   = 0 + "" + date.getHours();}
-        if (days < 10)    {days    = 0 + "" + date.getDate();}
-        
-        bot.sendDocument(msg.from.id, "Registro.csv", {caption: "Document generat. " 
-        + hours + ":" + minutes + " - " + days + "/" + parseInt(date.getMonth() + 1)
-        + "/" + date.getFullYear()});
-    });
+    generatecsv.export2csv();
 });
 
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte 'T'ho conte?' per a la divulgació i educació en termes de govern obert. \n"
-     + "\nAquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert.\n"
+    text = "Benvingut al bot del projecte **'T'ho conte?'** per a la divulgació i educació en termes de govern obert. \n"
+     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert."
      + "\nQuè vols que et conte? ;)",
-    keyboard.open({ resize_keyboard: true }),
-    {parse_mode: "HTML"}
+    keyboard.open({ resize_keyboard: true })
     );
 });
 //#endregion
@@ -209,54 +191,64 @@ function handleCiudadania(msg) {
     var term;
     switch(answer) {
         case '0.1':
-            bot.sendMessage(msg.from.id, 'Col·laboració:');
             term = 'Col·laboració';
-            bot.sendMessage(msg.from.id, 'Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
+            bot.sendMessage(msg.from.id, 'Col·laboració: \n Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.2':
-            bot.sendMessage(msg.from.id, 'Cocreació:');
             term = 'Cocreació';
-            bot.sendMessage(msg.from.id, 'És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
+            bot.sendMessage(msg.from.id, 'Cocreació: \n És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.3':
-            bot.sendMessage(msg.from.id, 'Apoderament ciutadà:');
             term = 'Apoderament ciutadà';
-            bot.sendMessage(msg.from.id, 'Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
+            bot.sendMessage(msg.from.id, 'Apoderament ciutadà: \n Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.4':
-            bot.sendMessage(msg.from.id, 'Compromís ciutadà:');
             term = 'Compromís ciutadà';
-            bot.sendMessage(msg.from.id, 'Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            bot.sendMessage(msg.from.id, 'Compromís ciutadà: \n Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.5':
-            bot.sendMessage(msg.from.id, 'Pressupostos participatius:');
             term = 'Pressupostos participatius';
-            bot.sendMessage(msg.from.id, 'Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
+            bot.sendMessage(msg.from.id, 'Pressupostos participatius: \n Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.6':
-            bot.sendMessage(msg.from.id, 'Participació ciutadana:');
             term = 'Participació ciutadana';
-            bot.sendMessage(msg.from.id, 'Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
+            bot.sendMessage(msg.from.id, 'Participació ciutadana: \n Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.7':
-            bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública:');
             term = 'Dret d\'accés a la informació pública';
-            bot.sendMessage(msg.from.id, 'Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
+            bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública: \n Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.8': 
-            bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent:');
             term = 'Ciutadania Intel·ligent';
-            bot.sendMessage(msg.from.id, 'Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
+            bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent: \n Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.9':
-            bot.sendMessage(msg.from.id, 'Consciència cívica:');
             term = 'Consciència cívica';
-            bot.sendMessage(msg.from.id, 'Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
+            bot.sendMessage(msg.from.id, 'Consciència cívica: \n Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.10':
-            bot.sendMessage(msg.from.id, 'Cultura participativa:');
             term = 'Cultura participativa';
-            bot.sendMessage(msg.from.id, 'Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
+            bot.sendMessage(msg.from.id, 'Cultura participativa: \n Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break; 
     }
     MongoClient.connect(url, function(err, db) {
@@ -277,49 +269,59 @@ function handleResponsabilidad(msg) {
     var term;
     switch(answer) {
         case '1.1':
-            bot.sendMessage(msg.from.id, 'Rendició de comptes:');
             term = 'Rendició de comptes';
-            bot.sendMessage(msg.from.id, 'Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.');
+            bot.sendMessage(msg.from.id, 'Rendició de comptes: \n Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.2':
-            bot.sendMessage(msg.from.id, 'Qualitat de serveis públics:');
             term = 'Qualitat de serveis públics';
-            bot.sendMessage(msg.from.id, 'Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.');
+            bot.sendMessage(msg.from.id, 'Qualitat de serveis públics: \n Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.3':
-            bot.sendMessage(msg.from.id, 'Innovació:');
             term = 'Innovació';
-            bot.sendMessage(msg.from.id, 'Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.');
+            bot.sendMessage(msg.from.id, 'Innovació: \n Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.4':
-            bot.sendMessage(msg.from.id, 'Responsabilidad social:');
             term = 'Responsabilidad social';
-            bot.sendMessage(msg.from.id, 'Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.');
+            bot.sendMessage(msg.from.id, 'Responsabilidad social: \n Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.5':
-            bot.sendMessage(msg.from.id, 'Corresponsabilitat:');
             term = 'Corresponsabilitat';
-            bot.sendMessage(msg.from.id, 'Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
+            bot.sendMessage(msg.from.id, 'Corresponsabilitat: \n Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.6':
-            bot.sendMessage(msg.from.id, 'Integritat:');
             term = 'Integritat'
-            bot.sendMessage(msg.from.id, 'Actuar en tot moment amb rectitud, lleialtat, honradesa, imparcialitat i bona fe.');
+            bot.sendMessage(msg.from.id, 'Integritat: \n Actuar en tot moment amb rectitud, lleialtat, honradesa, imparcialitat i bona fe.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.7':
-            bot.sendMessage(msg.from.id, 'Parets de cristall:');
             term = 'Parets de cristall';
-            bot.sendMessage(msg.from.id, 'Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.');
+            bot.sendMessage(msg.from.id, 'Parets de cristall: \n Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.8':
-            bot.sendMessage(msg.from.id, 'Inclusivitat:');
             term = 'Inclusivitat';
-            bot.sendMessage(msg.from.id, 'Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.');
+            bot.sendMessage(msg.from.id, 'Inclusivitat: \n Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.9':
-            bot.sendMessage(msg.from.id, 'Confiança mútua:');
             term = 'Confiança mútua'
-            bot.sendMessage(msg.from.id, 'Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.');
+            bot.sendMessage(msg.from.id, 'Confiança mútua: \n Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
     }
    
@@ -341,38 +343,45 @@ function handleTecnologia(msg) {
     var term;
     switch(answer) {
         case '2.1':
-            bot.sendMessage(msg.from.id, 'Dades obertes:');
             term = 'Dades obertes';
-            bot.sendMessage(msg.from.id, 'Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.');
+            bot.sendMessage(msg.from.id, 'Dades obertes: \n Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.2':
-            bot.sendMessage(msg.from.id, 'Governança intel·ligent:');
             term = 'Governança intel·ligent';
-            bot.sendMessage(msg.from.id, 'Ús de noves tecnologies com a eina per a millorar la manera de governar.');
+            bot.sendMessage(msg.from.id, 'Governança intel·ligent: \n Ús de noves tecnologies com a eina per a millorar la manera de governar.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.3':
-            bot.sendMessage(msg.from.id, 'Bretxa digital:');
             term = 'Bretxa digital';
-            bot.sendMessage(msg.from.id, 'Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.');
+            bot.sendMessage(msg.from.id, 'Bretxa digital: \n Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.4':
-            bot.sendMessage(msg.from.id, 'Smart City:');
             term = 'Smart City';
-            bot.sendMessage(msg.from.id, 'És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.');
+            bot.sendMessage(msg.from.id, 'Smart City: \n És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.5':
-            bot.sendMessage(msg.from.id, 'Portals de transparència:');
             term = 'Portals de transparència';
-            bot.sendMessage(msg.from.id, 'Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.');
+            bot.sendMessage(msg.from.id, 'Portals de transparència: \n Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.6':
-            bot.sendMessage(msg.from.id, 'Portals de dades obertes:');
             term = 'Portals de dades obertes';
-            bot.sendMessage(msg.from.id, 'Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.');
+            bot.sendMessage(msg.from.id, 'Portals de dades obertes: \n Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.7':
-            bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació:');
-            bot.sendMessage(msg.from.id, 'Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.');
+            bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació: \n Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
@@ -393,24 +402,28 @@ function handleComunicacion(msg) {
     var term;
     switch(answer) {
         case '3.1':
-            bot.sendMessage(msg.from.id, 'Fake news:');
             term = 'Fake news'
-            bot.sendMessage(msg.from.id, 'Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.');
+            bot.sendMessage(msg.from.id, 'Fake news: \n Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '3.2':
-            bot.sendMessage(msg.from.id, 'Periodisme de dades:');
             term = 'Periodisme de dades'
-            bot.sendMessage(msg.from.id, 'És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.');
+            bot.sendMessage(msg.from.id, 'Periodisme de dades: \n És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '3.3':
-            bot.sendMessage(msg.from.id, 'Publicitat activa:');
             term = 'Publicitat activa';
-            bot.sendMessage(msg.from.id, 'Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.');
+            bot.sendMessage(msg.from.id, 'Publicitat activa: \n Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '3.4':
-            bot.sendMessage(msg.from.id, 'Transparència:');
             term = 'Transparència'
-            bot.sendMessage(msg.from.id, 'Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.');
+            bot.sendMessage(msg.from.id, 'Transparència: \n Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
@@ -431,24 +444,28 @@ function handleGobierno(msg) {
     var term;
     switch(answer) {
         case '4.1':
-            bot.sendMessage(msg.from.id, 'Govern obert:');
             term = 'Govern obert';
-            bot.sendMessage(msg.from.id, 'Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.');
+            bot.sendMessage(msg.from.id, 'Govern obert: \n Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '4.2':
-            bot.sendMessage(msg.from.id, 'Bon Govern:');
             term = 'Bon govern'
-            bot.sendMessage(msg.from.id, 'Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.');
+            bot.sendMessage(msg.from.id, 'Bon Govern: \n Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '4.3':
-            bot.sendMessage(msg.from.id, 'Consell de transparència:');
             term = 'Consell de transparència';
-            bot.sendMessage(msg.from.id, 'Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.');
+            bot.sendMessage(msg.from.id, 'Consell de transparència: \n Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '4.4':
-            bot.sendMessage(msg.from.id, 'Polítiques públiques:');
             term = 'Polítiques públiques'
-            bot.sendMessage(msg.from.id, 'Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.');
+            bot.sendMessage(msg.from.id, 'Polítiques públiques: \n Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.');
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
@@ -458,7 +475,7 @@ function handleGobierno(msg) {
         var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
-          console.log(msg.from.id + "ha consultat:" + term);
+          console.log(msg.from.id + " ha consultat:" + term);
           db.close();
         });
       }); 
@@ -599,7 +616,7 @@ function handleOds(msg) {
         var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
-          console.log(msg.from.id + "ha consultat:" + term);
+          console.log(msg.from.id + " ha consultat:" + term);
           db.close();
         });
       }); 
