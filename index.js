@@ -1,6 +1,6 @@
 //#region Imports
 var Telegram = require('node-telegram-bot-api');
-var token = "887425942:AAFwUATg6BB-hkuMOL_koo0im77hm83wqXw"; 
+var token = "887425942:AAFwUATg6BB-hkuMOL_koo0im77hm83wqXw";
 var bot = new Telegram(token, { polling: true });
 var wrapper = require('node-telegram-keyboard-wrapper');
 var generatecsv = require('./exportCSV.js');
@@ -22,6 +22,9 @@ MongoClient.connect(url, function(err, db) {
 
 var userAnswer = [];
 var isKeyboardOpen = false;
+var tiempoCsv = 12;                             //Tiempo entre backups de csv
+var interval =tiempoCsv * 60 * 60 * 1000;       //En ms
+var func = setInterval(function(){ generatecsv.export2csv(); }, interval);
 
 //#region Variables navegar
 const niveles = {
@@ -130,28 +133,16 @@ var Opciones = [
 //#endregion
 
 //#region Commands
-bot.onText(/\/test/, (msg) => {
+bot.onText(/\/csv/, (msg) => {
     generatecsv.export2csv();
-});
-
-bot.onText(/\/restart/, (msg) => {
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Función no implementada");
-});
-
-bot.onText(/\/return/, (msg) => {
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Función no implementada");
-});
-
-bot.onText(/\/help/, (msg) => {
-    showHelp(msg);
 });
 
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte \n 'T'ho conte?' \n per a la divulgació i educació en termes de govern obert. \n Que vols que et conte? ;)",
+    text = "Benvingut al bot del projecte **'T'ho conte?'** per a la divulgació i educació en termes de govern obert. \n"
+     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert."
+     + "\nQuè vols que et conte? ;)",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -636,20 +627,9 @@ function startPoll(msg, index) {
     bot.sendMessage(chat, text, options);
 };
 
-function showHelp(msg) {
-    var text = "Pots utilitzar els seguents comandos\n" +
-                "/start - Inicio del bot\n" +
-                "/restart - Reinicia la encuesta\n" +
-                "/return - Vuelve a la pregunta anterior\n";
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, text);
-};
-
 function newPoll() {
     userAnswer.push(id);
     userAnswer.push(todayTime());
-
-    
 };
 
 function todayTime() {
