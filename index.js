@@ -157,7 +157,7 @@ bot.onText(/\/csv/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte **'T'ho conte?'** per a la divulgació i educació en termes de govern obert. \n"
+    text = "Benvingut al bot del projecte 'T'ho conte?' per a la divulgació i educació en termes de govern obert. \n"
      + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert."
      + "\nQuè vols que et conte? ;)",
     keyboard.open({ resize_keyboard: true })
