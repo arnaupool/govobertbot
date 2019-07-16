@@ -194,61 +194,97 @@ function handleCiudadania(msg) {
             term = 'Col·laboració';
             bot.sendMessage(msg.from.id, 'Col·laboració: \n Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: \n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=11)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato/#page=10)\n'
+            + '· [Link 3](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato/#page=16)\n'
+            + '· [Link 4](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=5)\n'
+            + '· [Link 5](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=6)\n'
+            
+            , {parse_mode: "Markdown"});}, 2000);
             break;
-        case '0.2':
+        case '0.2': 
             term = 'Cocreació';
             bot.sendMessage(msg.from.id, 'Cocreació: \n És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO#page=12)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=16)\n'
+            );}, 2000);
             break;
-        case '0.3':
+        case '0.3': 
             term = 'Apoderament ciutadà';
             bot.sendMessage(msg.from.id, 'Apoderament ciutadà: \n Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://www.valencia.es/transparencia/publicaciones/Informe_L%C3%ADneas_estratégicas_Cátedra_GO_Iniciativas_DGC.pdf#page=5)\n'
+            );}, 2000);
             break;
         case '0.4':
             term = 'Compromís ciutadà';
             bot.sendMessage(msg.from.id, 'Compromís ciutadà: \n Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=6)\n'
+            
+            
+            );}, 2000);
             break;
         case '0.5':
             term = 'Pressupostos participatius';
             bot.sendMessage(msg.from.id, 'Pressupostos participatius: \n Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](https://www.diba.cat/documents/116331322/146465019/AAFF_05_Quaderns+PC+_CAST.pdf/66377e67-38f2-4862-80b0-2f12b4211a2a#page=2)\n'
+            
+            );}, 2000);
             break;
         case '0.6':
             term = 'Participació ciutadana';
             bot.sendMessage(msg.from.id, 'Participació ciutadana: \n Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=10)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=13)\n'
+            + '· [Link 3](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=5)\n'
+            + '· [Link 4](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=6)\n'
+            
+            );}, 2000);
             break;
         case '0.7':
             term = 'Dret d\'accés a la informació pública';
             bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública: \n Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
+            + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=11)\n'
+
+            );}, 2000);
             break;
         case '0.8': 
             term = 'Ciutadania Intel·ligent';
             bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent: \n Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Notícia 1](https://www.eucim.es/noticias/smart-cities-smart-citizens-ciudadanos-inteligentes/)\n'
+            + '· [Notícia 2](https://medium.com/urbvan/ciudades-inteligentes-ciudadanos-inteligentes-y-viceversa-693b813f14cc)\n'
+
+            );}, 2000);
             break;
         case '0.9':
             term = 'Consciència cívica';
             bot.sendMessage(msg.from.id, 'Consciència cívica: \n Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '0.10':
             term = 'Cultura participativa';
             bot.sendMessage(msg.from.id, 'Cultura participativa: \n Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=6)\n'
+            + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=7)\n'
+
+            );}, 2000);
             break; 
     }
     MongoClient.connect(url, function(err, db) {
@@ -272,56 +308,93 @@ function handleResponsabilidad(msg) {
             term = 'Rendició de comptes';
             bot.sendMessage(msg.from.id, 'Rendició de comptes: \n Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
+            + '· [Link 3](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=5)\n'
+            + '· [Link 4](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=6)\n'
+
+            );}, 2000);
             break;
         case '1.2':
             term = 'Qualitat de serveis públics';
             bot.sendMessage(msg.from.id, 'Qualitat de serveis públics: \n Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '1.3':
             term = 'Innovació';
             bot.sendMessage(msg.from.id, 'Innovació: \n Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=12)\n'
+            + '· [Link 3](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
+            + '· [Link 4](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=17)\n'
+
+            );}, 2000);
             break;
         case '1.4':
             term = 'Responsabilidad social';
             bot.sendMessage(msg.from.id, 'Responsabilidad social: \n Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Oxfam Intermón](https://blog.oxfamintermon.org/los-diferentes-tipos-de-responsabilidad-social-del-ambito-individual-a-la-acciones-gubernamentales/#Guias )\n'
+
+            );}, 2000);
             break;
         case '1.5':
             term = 'Corresponsabilitat';
             bot.sendMessage(msg.from.id, 'Corresponsabilitat: \n Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://peleandoconlastic.blogspot.com/2018/03/la-corresponsabilidad-en-gobierno.html)\n'
+
+            );}, 2000);
             break;
         case '1.6':
             term = 'Integritat'
             bot.sendMessage(msg.from.id, 'Integritat: \n Actuar en tot moment amb rectitud, lleialtat, honradesa, imparcialitat i bona fe.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
+
+            );}, 2000);
             break;
         case '1.7':
             term = 'Parets de cristall';
             bot.sendMessage(msg.from.id, 'Parets de cristall: \n Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
+
+            );}, 2000);
             break;
         case '1.8':
             term = 'Inclusivitat';
             bot.sendMessage(msg.from.id, 'Inclusivitat: \n Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
+
+            );}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1]()\n'
+            + '· [Link 2]()\n'
+
+            );}, 2000);
             break;
         case '1.9':
             term = 'Confiança mútua'
             bot.sendMessage(msg.from.id, 'Confiança mútua: \n Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
+
+            );}, 2000);
             break;
     }
    
@@ -346,42 +419,64 @@ function handleTecnologia(msg) {
             term = 'Dades obertes';
             bot.sendMessage(msg.from.id, 'Dades obertes: \n Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=6)\n'
+            + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=8)\n'
+            + '· [Link 3](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=17)\n'
+
+            );}, 2000);
             break;
         case '2.2':
             term = 'Governança intel·ligent';
             bot.sendMessage(msg.from.id, 'Governança intel·ligent: \n Ús de noves tecnologies com a eina per a millorar la manera de governar.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
             break;
         case '2.3':
             term = 'Bretxa digital';
             bot.sendMessage(msg.from.id, 'Bretxa digital: \n Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Vídeo YouTube](https://www.youtube.com/watch?v=mtTOB4tFRSs)\n'
+
+            );}, 2000);
             break;
         case '2.4':
             term = 'Smart City';
             bot.sendMessage(msg.from.id, 'Smart City: \n És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Vídeo YouTube](https://www.youtube.com/watch?v=25BKmHF_9QM)\n'
+
+            );}, 2000);
             break;
         case '2.5':
             term = 'Portals de transparència';
             bot.sendMessage(msg.from.id, 'Portals de transparència: \n Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=11)\n'
+
+            );}, 2000);
             break;
         case '2.6':
             term = 'Portals de dades obertes';
             bot.sendMessage(msg.from.id, 'Portals de dades obertes: \n Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=12)\n'
+
+            );}, 2000);
             break;
         case '2.7':
+            term = 'Laboratoris d\'innovació';
             bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació: \n Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=13)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=17)\n'
+
+            );}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
@@ -405,25 +500,42 @@ function handleComunicacion(msg) {
             term = 'Fake news'
             bot.sendMessage(msg.from.id, 'Fake news: \n Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](https://www.ifj.org/fileadmin/user_upload/Fake_News_-_FIP_AmLat.pdf#page=3)\n'
+
+            );}, 2000);
             break;
         case '3.2':
             term = 'Periodisme de dades'
             bot.sendMessage(msg.from.id, 'Periodisme de dades: \n És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](https://catgo.webs.upv.es/informe-datos-generados-por-la-ciudadania-desde-el-contexto-valenciano/#page=26)\n'
+            + '· [Link 2](https://catgo.webs.upv.es/informe-datos-generados-por-la-ciudadania-desde-el-contexto-valenciano/#page=27)\n'
+            + '· [Link 3](https://catgo.webs.upv.es/informe-datos-abiertos-para-el-desarrollo-od4d-en-la-comunidad-valenciana/#page=44)\n'
+            + '· [Link 4](https://catgo.webs.upv.es/informe-datos-abiertos-para-el-desarrollo-od4d-en-la-comunidad-valenciana/#page=52)\n'
+
+            );}, 2000);
             break;
         case '3.3':
             term = 'Publicitat activa';
             bot.sendMessage(msg.from.id, 'Publicitat activa: \n Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1]()\n'
+            + '· [Link 2]()\n'
+
+            );}, 2000);
             break;
         case '3.4':
             term = 'Transparència'
             bot.sendMessage(msg.from.id, 'Transparència: \n Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=11)\n'
+
+            );}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
@@ -447,25 +559,47 @@ function handleGobierno(msg) {
             term = 'Govern obert';
             bot.sendMessage(msg.from.id, 'Govern obert: \n Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=3)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=6)\n'
+            + '· [Link 3](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=3)\n'
+            + '· [Link 4](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=7)\n'
+            + '· [Link 5](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
+            + '· [Link 6](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
+            + '· [Link 7](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=19)\n'
+            + '· [Link 8](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=5)\n'
+            + '· [Link 9](https://www.youtube.com/watch?v=wcao6i1yDQ4)\n'
+
+            );}, 2000);
             break;
         case '4.2':
             term = 'Bon govern'
             bot.sendMessage(msg.from.id, 'Bon Govern: \n Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](https://casaasia.es/governasia/boletin2/3.pdf#page=5)\n'
+
+            );}, 2000);
             break;
         case '4.3':
             term = 'Consell de transparència';
             bot.sendMessage(msg.from.id, 'Consell de transparència: \n Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=9)\n'
+
+            );}, 2000);
             break;
         case '4.4':
             term = 'Polítiques públiques'
             bot.sendMessage(msg.from.id, 'Polítiques públiques: \n Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.');
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: :\n ');}, 2000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
+            + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=10)\n'
+            + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
+            + '· [Link 3](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=13)\n'
+
+            );}, 2000);
             break;
     }
     MongoClient.connect(url, function(err, db) {
