@@ -133,7 +133,7 @@ var Opciones = [
 //#endregion
 
 //#region Commands
-bot.onText(/\/test/, (msg) => {
+bot.onText(/\/csv/, (msg) => {
     generatecsv.export2csv();
 });
 
