@@ -23,8 +23,12 @@ MongoClient.connect(url, function(err, db) {
 var userAnswer = [];
 var isKeyboardOpen = false;
 var tiempoCsv = 12;                             //Tiempo entre backups de csv
-var interval =tiempoCsv * 60 * 60 * 1000;       //En ms
-var func = setInterval(function(){ generatecsv.export2csv(); }, interval);
+var interval = tiempoCsv * 60 * 60 * 1000;       //En ms
+
+var func = setInterval(function(){
+    generatecsv.export2csv(function () {
+        console.log("Documento de registros generado. " + new Date());});
+    }, interval);
 
 //#region Variables navegar
 const niveles = {
@@ -134,7 +138,20 @@ var Opciones = [
 
 //#region Commands
 bot.onText(/\/csv/, (msg) => {
-    generatecsv.export2csv();
+    bot.sendMessage(msg.from.id, "Generant document... Estarà llest en uns segons.");
+    generatecsv.export2csv(function(date) {
+        console.log("Documento generado.");
+        var minutes = parseInt(date.getMinutes());
+        var hours = parseInt(date.getHours());
+        var days = parseInt(date.getDate());
+        if (minutes < 10) {minutes = 0 + "" + date.getMinutes();}
+        if (hours < 10)   {hours   = 0 + "" + date.getHours();}
+        if (days < 10)    {days    = 0 + "" + date.getDate();}
+
+        bot.sendDocument(msg.from.id, "Registro.csv", {caption: "Document generat. " 
+        + hours + ":" + minutes + " - " + days + "/" + parseInt(date.getMonth() + 1)
+        + "/" + date.getFullYear()});
+    });
 });
 
 bot.onText(/\/start/, (msg) => {
