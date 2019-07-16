@@ -137,24 +137,12 @@ bot.onText(/\/test/, (msg) => {
     generatecsv.export2csv();
 });
 
-bot.onText(/\/restart/, (msg) => {
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Función no implementada");
-});
-
-bot.onText(/\/return/, (msg) => {
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, "Función no implementada");
-});
-
-bot.onText(/\/help/, (msg) => {
-    showHelp(msg);
-});
-
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte **'T'ho conte?'** per a la divulgació i educació en termes de govern obert. \n Què vols que et conte? ;)",
+    text = "Benvingut al bot del projecte **'T'ho conte?'** per a la divulgació i educació en termes de govern obert. \n"
+     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert."
+     + "\nQuè vols que et conte? ;)",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -599,15 +587,6 @@ function startPoll(msg, index) {
     }
     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
     bot.sendMessage(chat, text, options);
-};
-
-function showHelp(msg) {
-    var text = "Pots utilitzar els seguents comandos\n" +
-                "/start - Inicio del bot\n" +
-                "/restart - Reinicia la encuesta\n" +
-                "/return - Vuelve a la pregunta anterior\n";
-    chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
-    bot.sendMessage(chat, text);
 };
 
 function newPoll() {
