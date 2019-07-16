@@ -318,7 +318,7 @@ function handleCiudadania(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -433,7 +433,7 @@ function handleResponsabilidad(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -520,7 +520,7 @@ function handleTecnologia(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -583,7 +583,7 @@ function handleComunicacion(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + "ha consultat:" + term);
@@ -654,7 +654,7 @@ function handleGobierno(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + " ha consultat:" + term);
@@ -795,7 +795,7 @@ function handleOds(msg) {
         if (err) throw err;
         var dbo = db.db("botdb");
         today = new Date();
-        var miconsulta = { userid: msg.from.id , concept: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
+        var miconsulta = { userid: msg.from.id , concepte: nivelActual, terme: term, dia: today.getUTCDate(), mes: today.getMonth(), any: today.getFullYear(), hora: today.getHours(), min: today.getMinutes() };
         dbo.collection("consultes").insertOne(miconsulta, function(err, res) {
           if (err) throw err;
           console.log(msg.from.id + " ha consultat:" + term);
