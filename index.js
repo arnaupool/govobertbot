@@ -157,12 +157,10 @@ bot.onText(/\/csv/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut!! \n Aques és el bot del projecte **T'ho conte?** per a la divulgació i educació en termes de govern obert. \n"
-     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert i els ODS."
+    text = "Benvingut!! \n Aquest és el bot del projecte **T'ho conte?** per a la divulgació i educació en termes de govern obert. \n"
+     + "Ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert i els ODS."
      + "\nQuè vols que et conte? ;)", {parse_mode: "Markdown"});
-    bot.sendMessage(msg.from.id, text = "Selecciona una de les següents opcións al teclat que t'apareix en pantalla.",
-    keyboard.open({ resize_keyboard: true })
-    );
+    setTimeout(function(){ bot.sendMessage(msg.from.id, "Selecciona una de les següents opcións al teclat que t'apareix en pantalla.", keyboard.open({ resize_keyboard: true }));}, 1000);
 });
 //#endregion
 
