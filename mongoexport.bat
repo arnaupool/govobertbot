@@ -1,0 +1,2 @@
+cd C:\Program Files\MongoDB\Server\4.0\bin\
+start "" "C:\Program Files\MongoDB\Server\4.0\bin\mongoexport.exe" /db botdb /c consultes /type:csv /o Registro.csv /f _id,userid,concepte,terme,dia,mes,any,hora,min
