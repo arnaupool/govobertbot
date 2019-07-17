@@ -157,9 +157,10 @@ bot.onText(/\/csv/, (msg) => {
 bot.onText(/\/start/, (msg) => {
     isKeyboardOpen = true;
     bot.sendMessage(msg.from.id, 
-    text = "Benvingut al bot del projecte 'T'ho conte?' per a la divulgació i educació en termes de govern obert. \n"
-     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert."
-     + "\nQuè vols que et conte? ;)",
+    text = "Benvingut!! \n Aques és el bot del projecte **T'ho conte?** per a la divulgació i educació en termes de govern obert. \n"
+     + "Aquest bot ha sigut creat per a donar la definició d'alguns termes relacionats amb el govern obert i els ODS."
+     + "\nQuè vols que et conte? ;)", {parse_mode: "Markdown"});
+    bot.sendMessage(msg.from.id, text = "Selecciona una de les següents opcións al teclat que t'apareix en pantalla.",
     keyboard.open({ resize_keyboard: true })
     );
 });
@@ -209,9 +210,9 @@ function handleCiudadania(msg) {
     switch(answer) {
         case '0.1':
             term = 'Col·laboració';
-            bot.sendMessage(msg.from.id, 'Col·laboració: \n Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.');
-            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.");}, 1000);
+            bot.sendMessage(msg.from.id, '**Col·laboració:** \n Creació de nous espais de trobada, diàleg i treball on participen tots els agents de la societat (administracions, governs, societat civil, empreses, associacions, ONGD, etc.) per a actuar sobre problemes concrets d\'índole general.', {parse_mode: "Markdown"});
+            setTimeout(function(){ bot.sendMessage(msg.from.id, '**Aplicació pràctica:** \n' +
+                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació: \n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=11)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato/#page=10)\n'
@@ -223,9 +224,9 @@ function handleCiudadania(msg) {
             break;
         case '0.2': 
             term = 'Cocreació';
-            bot.sendMessage(msg.from.id, 'Cocreació: \n És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.');
+            bot.sendMessage(msg.from.id, 'Cocreació: \n És la posada en pràctica de la col·laboració. Actua sobre problemes concrets mitjançant diferents formes de participació per a analitzar, intervindre i generar solucions de manera col·lectiva i incorporant a les persones o col·lectius implicats sempre que siga possible. Impulsa la innovació oberta.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.");}, 1000);
+                                                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO#page=12)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=16)\n'
@@ -233,18 +234,18 @@ function handleCiudadania(msg) {
             break;
         case '0.3': 
             term = 'Apoderament ciutadà';
-            bot.sendMessage(msg.from.id, 'Apoderament ciutadà: \n Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.');
+            bot.sendMessage(msg.from.id, 'Apoderament ciutadà: \n Els ciutadans i ciutadanes adquireixen la consciència i el control de que poden influir sobre el que afecta a la seua qualitat de vida a tots els nivells.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.");}, 1000);
+                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://www.valencia.es/transparencia/publicaciones/Informe_L%C3%ADneas_estratégicas_Cátedra_GO_Iniciativas_DGC.pdf#page=5)\n'
             , {parse_mode: "Markdown"});}, 2000)
             break;
         case '0.4':
             term = 'Compromís ciutadà';
-            bot.sendMessage(msg.from.id, 'Compromís ciutadà: \n Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.');
+            bot.sendMessage(msg.from.id, 'Compromís ciutadà: \n Està promogut pels governs per a què la ciutadania en processos formals, prenga part de les decisions polítiques.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.");}, 1000);
+                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=6)\n'
             
@@ -253,9 +254,9 @@ function handleCiudadania(msg) {
             break;
         case '0.5':
             term = 'Pressupostos participatius';
-            bot.sendMessage(msg.from.id, 'Pressupostos participatius: \n Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.');
+            bot.sendMessage(msg.from.id, 'Pressupostos participatius: \n Participació dels veïns i les veïnes en els pressupostos del seu municipi/barri per a destinar part dels diners als projectes de major interés per a les persones de la ciutat/barri.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.");}, 1000);
+                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://www.diba.cat/documents/116331322/146465019/AAFF_05_Quaderns+PC+_CAST.pdf/66377e67-38f2-4862-80b0-2f12b4211a2a#page=2)\n'
             
@@ -263,9 +264,9 @@ function handleCiudadania(msg) {
             break;
         case '0.6':
             term = 'Participació ciutadana';
-            bot.sendMessage(msg.from.id, 'Participació ciutadana: \n Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.');
+            bot.sendMessage(msg.from.id, 'Participació ciutadana: \n Manera que tenen els ciutadans i les ciutadanes per a participar en la presa decisions del govern i en el disseny de serveis públics.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.");}, 1000);
+                                "Cada candidatura a delegats i delegades podria haver fet una reunió prèvia amb els companys i companyes de classe per a decidir entre tots i totes el programa que pretén dur a terme.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=10)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=13)\n'
@@ -276,9 +277,9 @@ function handleCiudadania(msg) {
             break;
         case '0.7':
             term = 'Dret d\'accés a la informació pública';
-            bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública: \n Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.');
+            bot.sendMessage(msg.from.id, 'Dret d\'accés a la informació pública: \n Totes les persones tenen dret i poden sol·licitar la informació que consideren del seu interés generada per les administracions públiques, llevat que entren en conflicte amb altres lleis tals com la protecció de dades o la seguretat nacional principalment.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.");}, 1000);
+                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
             + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=11)\n'
@@ -287,9 +288,9 @@ function handleCiudadania(msg) {
             break;
         case '0.8': 
             term = 'Ciutadania Intel·ligent';
-            bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent: \n Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.');
+            bot.sendMessage(msg.from.id, 'Ciutadania Intel·ligent: \n Ciutadania que utilitza la intel·ligència artificial per a prendre les seues pròpies decisions dia a dia i a llarg termini.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Un ciutadà o ciutadana amb discapacitat obté dades del portal de dades obertes de la seua ciutat per a conéixer on estan els contenidors accessibles per a la seua discapacitat.");}, 1000);
+                                "Un ciutadà o ciutadana amb discapacitat obté dades del portal de dades obertes de la seua ciutat per a conéixer on estan els contenidors accessibles per a la seua discapacitat.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Notícia 1](https://www.eucim.es/noticias/smart-cities-smart-citizens-ciudadanos-inteligentes/)\n'
             + '· [Notícia 2](https://medium.com/urbvan/ciudades-inteligentes-ciudadanos-inteligentes-y-viceversa-693b813f14cc)\n'
@@ -298,15 +299,15 @@ function handleCiudadania(msg) {
             break;
         case '0.9':
             term = 'Consciència cívica';
-            bot.sendMessage(msg.from.id, 'Consciència cívica: \n Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.');
+            bot.sendMessage(msg.from.id, 'Consciència cívica: \n Consciència que ens indica com hem de comportar-nos les ciutadanes i els ciutadans per a enfortir una democràcia participativa que reconega la pluralitat, la tolerància i el reconeixement de la dignitat individual.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                                                "La mare que torna per la seua bossa després que haja finalitzat la reunió de l'AMPA dubta que ha de fer. Fa uns dies va assistir a uns tallers sobre ciutadania activa i recorda diverses coses que van quedar impregnades en la seua consciència.");}, 1000);
+                                                                "La mare que torna per la seua bossa després que haja finalitzat la reunió de l'AMPA dubta que ha de fer. Fa uns dies va assistir a uns tallers sobre ciutadania activa i recorda diverses coses que van quedar impregnades en la seua consciència.", {parse_mode: "Markdown"});}, 1000);
             break;
         case '0.10':
             term = 'Cultura participativa';
-            bot.sendMessage(msg.from.id, 'Cultura participativa: \n Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.');
+            bot.sendMessage(msg.from.id, 'Cultura participativa: \n Cultura destinada al desenvolupament de les habilitats d\'expressió i comunicació d\'opinions i idees pròpies i al compromís cívic de la ciutadania, assumint responsabilitats.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.");}, 1000);
+                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre. Els pressupostos participatius requereix que es facen proposades i que totes les persones que formen part del centre s'impliquen.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=6)\n'
             + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=7)\n'
@@ -333,9 +334,9 @@ function handleResponsabilidad(msg) {
     switch(answer) {
         case '1.1':
             term = 'Rendició de comptes';
-            bot.sendMessage(msg.from.id, 'Rendició de comptes: \n Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.');
+            bot.sendMessage(msg.from.id, 'Rendició de comptes: \n Obligació dels governs i administracions públiques a donar explicacions sobre les seues accions i assumir la responsabilitat de les decisions que adopten.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.");}, 1000);
+                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
@@ -346,15 +347,15 @@ function handleResponsabilidad(msg) {
             break;
         case '1.2':
             term = 'Qualitat de serveis públics';
-            bot.sendMessage(msg.from.id, 'Qualitat de serveis públics: \n Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.');
+            bot.sendMessage(msg.from.id, 'Qualitat de serveis públics: \n Les administracions públiques han d\'assegurar a la ciutadania una contínua millora dels procediments, serveis i prestacions públiques tenint en compte els recursos disponibles i les polítiques públiques.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                                                "La disposició dels contenidors per als diferents tipus de reciclatge ha de tindre en compte l'accés als mateixos i la distància que s’ha de recórrer per al seu ús, principalment per a les persones amb problemes de mobilitat.");}, 1000);
+                                                                "La disposició dels contenidors per als diferents tipus de reciclatge ha de tindre en compte l'accés als mateixos i la distància que s’ha de recórrer per al seu ús, principalment per a les persones amb problemes de mobilitat.", {parse_mode: "Markdown"});}, 1000);
             break;
         case '1.3':
             term = 'Innovació';
-            bot.sendMessage(msg.from.id, 'Innovació: \n Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.');
+            bot.sendMessage(msg.from.id, 'Innovació: \n Desenvolupament de noves maneres de fer les coses, al marge de com s\'han fet en el passat, i explorar formes alternatives de pensar.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "El ciutadà o ciutadana utilitza les xifres de reciclatge dels diferents tipus de residus desglossada per barris amb la intenció de proposar contenidors intel·ligents com per exemple: una targeta d'identificació familiar vinculada al pes dels residus que es generen en els diferents tipus de contenidors o la possibilitat d'adaptar-se a les persones amb dificultats especials perquè puguen fer ús d'ells.");}, 1000);
+                                "El ciutadà o ciutadana utilitza les xifres de reciclatge dels diferents tipus de residus desglossada per barris amb la intenció de proposar contenidors intel·ligents com per exemple: una targeta d'identificació familiar vinculada al pes dels residus que es generen en els diferents tipus de contenidors o la possibilitat d'adaptar-se a les persones amb dificultats especials perquè puguen fer ús d'ells.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=12)\n'
@@ -365,9 +366,9 @@ function handleResponsabilidad(msg) {
             break;
         case '1.4':
             term = 'Responsabilidad social';
-            bot.sendMessage(msg.from.id, 'Responsabilidad social: \n Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.');
+            bot.sendMessage(msg.from.id, 'Responsabilidad social: \n Compromís dels membres de la societat individualment o com a part d\'un grup per a prendre decisions positives per a la societat.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "El centre educatiu ha de dedicar atenció a l’incident ocasionat pels alumnes i alumnes que utilitzen els banys de manera inapropiada. A més, pot aprofitar-ho per a conscienciar sobre l'ús de preservatius i les malalties o embarassos per no utilitzar-los i controlar totes les falses notícies en aquest àmbit.");}, 1000);
+                                "El centre educatiu ha de dedicar atenció a l’incident ocasionat pels alumnes i alumnes que utilitzen els banys de manera inapropiada. A més, pot aprofitar-ho per a conscienciar sobre l'ús de preservatius i les malalties o embarassos per no utilitzar-los i controlar totes les falses notícies en aquest àmbit.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://blog.oxfamintermon.org/los-diferentes-tipos-de-responsabilidad-social-del-ambito-individual-a-la-acciones-gubernamentales/#Guias )\n'
 
@@ -375,9 +376,9 @@ function handleResponsabilidad(msg) {
             break;
         case '1.5':
             term = 'Corresponsabilitat';
-            bot.sendMessage(msg.from.id, 'Corresponsabilitat: \n Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.');
+            bot.sendMessage(msg.from.id, 'Corresponsabilitat: \n Responsabilitat compartida entre dues o més persones o organitzacions, per a buscar solucions als problemes assumint la responsabilitat individual i compartida de les conseqüències generades per les solucions adoptades.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "L'alumnat que espera al professor que no ha arribat ha de compartir la responsabilitat de l'acció que decidisquen fer. Les conseqüències de la seua acció, afectaran a tot el grup.");}, 1000);
+                                "L'alumnat que espera al professor que no ha arribat ha de compartir la responsabilitat de l'acció que decidisquen fer. Les conseqüències de la seua acció, afectaran a tot el grup.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://peleandoconlastic.blogspot.com/2018/03/la-corresponsabilidad-en-gobierno.html)\n'
 
@@ -396,9 +397,9 @@ function handleResponsabilidad(msg) {
             break;
         case '1.7':
             term = 'Parets de cristall';
-            bot.sendMessage(msg.from.id, 'Parets de cristall: \n Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.');
+            bot.sendMessage(msg.from.id, 'Parets de cristall: \n Metàfora que explica el repte d\'implantar una administració pública totalment transparent en la qual la ciutadania puga conéixer què fan els governs, així com els actes i les decisions que es prenen des dels poders públics.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.");}, 1000);
+                                "Els alumnes sol·liciten les notes de cursos anteriors per a comparar-les amb els resultats del curs actual i poder prendre decisions.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
@@ -407,9 +408,9 @@ function handleResponsabilidad(msg) {
             break;
         case '1.8':
             term = 'Inclusivitat';
-            bot.sendMessage(msg.from.id, 'Inclusivitat: \n Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.');
+            bot.sendMessage(msg.from.id, 'Inclusivitat: \n Habilitar mecanismes que permeten assegurar que la ciutadania puga participar de totes les accions, rebutjant les accions que excloguen a persones o col·lectius per discapacitat, política, sexe, religió, etc.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "La disposició dels contenidors per als diferents tipus de reciclatge ha de tindre en compte l'accés als mateixos i la distància que s’ha de recórrer per al seu ús, principalment per a les persones amb problemes de mobilitat.");}, 1000);
+                                "La disposició dels contenidors per als diferents tipus de reciclatge ha de tindre en compte l'accés als mateixos i la distància que s’ha de recórrer per al seu ús, principalment per a les persones amb problemes de mobilitat.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
@@ -418,9 +419,9 @@ function handleResponsabilidad(msg) {
             break;
         case '1.9':
             term = 'Confiança mútua'
-            bot.sendMessage(msg.from.id, 'Confiança mútua: \n Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.');
+            bot.sendMessage(msg.from.id, 'Confiança mútua: \n Creure en els governs i administracions públiques, de la mateixa manera que ells també han de creure en els ciutadans i les ciutadanes.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre.");}, 1000);
+                                "Proposta de l'AMPA al centre educatiu per a obrir un procés de pressupostos participatius que permeta invertir una part del pressupost del centre en les necessitats de totes les persones del centre.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=7)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=9)\n'
@@ -448,9 +449,9 @@ function handleTecnologia(msg) {
     switch(answer) {
         case '2.1':
             term = 'Dades obertes';
-            bot.sendMessage(msg.from.id, 'Dades obertes: \n Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.');
+            bot.sendMessage(msg.from.id, 'Dades obertes: \n Dades que es generen en les AAPP en l\'exercici de les seues funcions i que posen a la disposició de les persones perquè les coneguen, els permeten prendre decisions informades i puguen reutilitzar-les individualment o en grups.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "El ciutadà o ciutadana utilitza les xifres de reciclatge dels diferents tipus de residus desglossada per barris amb la intenció de proposar contenidors intel·ligents com per exemple: una targeta d'identificació familiar vinculada al pes dels residus que es generen en els diferents tipus de contenidors o la possibilitat d'adaptar-se a les persones amb dificultats especials perquè puguen fer ús d'ells.");}, 1000);
+                                "El ciutadà o ciutadana utilitza les xifres de reciclatge dels diferents tipus de residus desglossada per barris amb la intenció de proposar contenidors intel·ligents com per exemple: una targeta d'identificació familiar vinculada al pes dels residus que es generen en els diferents tipus de contenidors o la possibilitat d'adaptar-se a les persones amb dificultats especials perquè puguen fer ús d'ells.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=6)\n'
             + '· [Link 2](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=8)\n'
@@ -460,15 +461,15 @@ function handleTecnologia(msg) {
             break;
         case '2.2':
             term = 'Governança intel·ligent';
-            bot.sendMessage(msg.from.id, 'Governança intel·ligent: \n Ús de noves tecnologies com a eina per a millorar la manera de governar.');
+            bot.sendMessage(msg.from.id, 'Governança intel·ligent: \n Ús de noves tecnologies com a eina per a millorar la manera de governar.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                                                "L'ajuntament de la ciutat utilitza les dades del reciclatge per barri i tipus de contenidor per a millorar el servei de recollida de residus. A més, ha creuat aquestes dades amb les dades obtingudes de la geolocalització dels diferents tipus de contenidors i la distància major que hauria de recórrer una persona per a arribar al contenidor des de la seua casa. Amb aquesta informació ha redissenyat la ubicació dels contenidors i ha posat nous contenidors en els llocs necessaris segons l'anàlisi realitzada.");}, 1000);
+                                                                "L'ajuntament de la ciutat utilitza les dades del reciclatge per barri i tipus de contenidor per a millorar el servei de recollida de residus. A més, ha creuat aquestes dades amb les dades obtingudes de la geolocalització dels diferents tipus de contenidors i la distància major que hauria de recórrer una persona per a arribar al contenidor des de la seua casa. Amb aquesta informació ha redissenyat la ubicació dels contenidors i ha posat nous contenidors en els llocs necessaris segons l'anàlisi realitzada.", {parse_mode: "Markdown"});}, 1000);
             break;
         case '2.3':
             term = 'Bretxa digital';
-            bot.sendMessage(msg.from.id, 'Bretxa digital: \n Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.');
+            bot.sendMessage(msg.from.id, 'Bretxa digital: \n Separació entre les persones que utilitzen les TIC habitualment en la seua vida i les que no tenen accés o si ho tenen, no saben com utilitzar-les.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Una persona amb dificultats de mobilitat s'ha mudat de barri. No sap com accedir a les dades de geolocalització dels contenidors que ofereix l'ajuntament i li resulta complicat reciclar els seus residus en els contenidors específics per a això.");}, 1000);
+                                "Una persona amb dificultats de mobilitat s'ha mudat de barri. No sap com accedir a les dades de geolocalització dels contenidors que ofereix l'ajuntament i li resulta complicat reciclar els seus residus en els contenidors específics per a això.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Vídeo YouTube](https://www.youtube.com/watch?v=mtTOB4tFRSs)\n'
 
@@ -476,9 +477,9 @@ function handleTecnologia(msg) {
             break;
         case '2.4':
             term = 'Smart City';
-            bot.sendMessage(msg.from.id, 'Smart City: \n És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.');
+            bot.sendMessage(msg.from.id, 'Smart City: \n És una "ciutat intel·ligent" capaç d\'utilitzar les tecnologies de la informació i comunicació (TIC) amb l\'objectiu de crear millors infraestructures i serveis per a la ciutadania.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "L'ajuntament de la ciutat utilitza les dades del reciclatge per barri i tipus de contenidor per a millorar el servei de recollida de residus. A més, ha creuat aquestes dades amb les dades obtingudes de la geolocalització dels diferents tipus de contenidors i la distància major que hauria de recórrer una persona per a arribar al contenidor des de la seua casa. Amb aquesta informació ha redissenyat la ubicació dels contenidors i ha posat nous contenidors en els llocs necessaris segons l'anàlisi realitzada.");}, 1000);
+                                "L'ajuntament de la ciutat utilitza les dades del reciclatge per barri i tipus de contenidor per a millorar el servei de recollida de residus. A més, ha creuat aquestes dades amb les dades obtingudes de la geolocalització dels diferents tipus de contenidors i la distància major que hauria de recórrer una persona per a arribar al contenidor des de la seua casa. Amb aquesta informació ha redissenyat la ubicació dels contenidors i ha posat nous contenidors en els llocs necessaris segons l'anàlisi realitzada.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Vídeo YouTube](https://www.youtube.com/watch?v=25BKmHF_9QM)\n'
 
@@ -486,9 +487,9 @@ function handleTecnologia(msg) {
             break;
         case '2.5':
             term = 'Portals de transparència';
-            bot.sendMessage(msg.from.id, 'Portals de transparència: \n Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.');
+            bot.sendMessage(msg.from.id, 'Portals de transparència: \n Plataforma digital informativa de lliure accés a través d\'Internet que permet a qualsevol usuari disposar d\'informació en forma de publicitat activa sobre les administracions públiques.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Tant l'AMPA com el propi centre educatiu haurien de disposar d'una apartat en la web del centre vinculada a la transparència amb la finalitat que estiguera disponible com a publicitat activa la informació a la qual obliga la normativa però també aquella que es considera d'interés encara que no hi haja obligació de posar-la.");}, 1000);
+                                "Tant l'AMPA com el propi centre educatiu haurien de disposar d'una apartat en la web del centre vinculada a la transparència amb la finalitat que estiguera disponible com a publicitat activa la informació a la qual obliga la normativa però també aquella que es considera d'interés encara que no hi haja obligació de posar-la.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=11)\n'
@@ -497,7 +498,7 @@ function handleTecnologia(msg) {
             break;
         case '2.6':
             term = 'Portals de dades obertes';
-            bot.sendMessage(msg.from.id, 'Portals de dades obertes: \n Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.');
+            bot.sendMessage(msg.from.id, 'Portals de dades obertes: \n Són plataformes digitals que serveixen per a emmagatzemar, compartir, connectar i visualitzar conjunts de dades. Són un punt de trobada entre la pròpia organització que els comparteix i altres organitzacions, les empreses, la ciutadania, les i els desenvolupadors informàtics i les i els periodistes, les associacions, les ONGD, etc.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n ');}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://datos.gob.es/sites/default/files/doc/file/open_data_publicacion_y_reutilizacion_de_datos_abiertos_como_iniciativa_de_gobierno_abierto_en_la_administracion_compressed.pdf#page=12)\n'
@@ -506,9 +507,9 @@ function handleTecnologia(msg) {
             break;
         case '2.7':
             term = 'Laboratoris d\'innovació';
-            bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació: \n Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.');
+            bot.sendMessage(msg.from.id, 'Laboratoris d\'innovació: \n Són espais per a experimentar amb noves maneres de generar valor públic, modernitzar la relació amb la ciutadania i aportar nous canals de participació i col·laboració.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-            "L'ajuntament llança un repte en un dels seus laboratoris d'innovació per a facilitar el depòsit dels residus per a les persones amb algun tipus de dificultat i també perquè xiquets i xiquetes s'habituen a ser les i els responsables a la seua casa de portar els residus que es generen al contenidor adequat.");}, 1000);
+            "L'ajuntament llança un repte en un dels seus laboratoris d'innovació per a facilitar el depòsit dels residus per a les persones amb algun tipus de dificultat i també perquè xiquets i xiquetes s'habituen a ser les i els responsables a la seua casa de portar els residus que es generen al contenidor adequat.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=13)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=17)\n'
@@ -535,9 +536,9 @@ function handleComunicacion(msg) {
     switch(answer) {
         case '3.1':
             term = 'Fake news'
-            bot.sendMessage(msg.from.id, 'Fake news: \n Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.');
+            bot.sendMessage(msg.from.id, 'Fake news: \n Informació fabricada i publicada a propòsit per a enganyar i induir a les persones a creure mentides o posar en dubte fets verificables.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "El centre educatiu ha de dedicar atenció a l’incident ocasionat pels alumnes i alumnes que utilitzen els banys de manera inapropiada. A més, pot aprofitar-ho per a conscienciar sobre l'ús de preservatius i les malalties o embarassos per no utilitzar-los i controlar totes les falses notícies en aquest àmbit.");}, 1000);
+                                "El centre educatiu ha de dedicar atenció a l’incident ocasionat pels alumnes i alumnes que utilitzen els banys de manera inapropiada. A més, pot aprofitar-ho per a conscienciar sobre l'ús de preservatius i les malalties o embarassos per no utilitzar-los i controlar totes les falses notícies en aquest àmbit.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://www.ifj.org/fileadmin/user_upload/Fake_News_-_FIP_AmLat.pdf#page=3)\n'
 
@@ -545,9 +546,9 @@ function handleComunicacion(msg) {
             break;
         case '3.2':
             term = 'Periodisme de dades'
-            bot.sendMessage(msg.from.id, 'Periodisme de dades: \n És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.');
+            bot.sendMessage(msg.from.id, 'Periodisme de dades: \n És una manera d\'elaborar notícies d\'una forma clara i comprensible basant-se en les dades que poden aportar informació sobre la notícia.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Una persona periodista s'ha interessat per la dificultat d'accés als contenidors per a les persones amb dificultats de mobilitat. Amb les dades sobre ubicació dels diferents contenidors i les xifres de reciclatge elabora una notícia per a un periòdic local amb la finalitat de visibilitzar la problemàtica.");}, 1000);
+                                "Una persona periodista s'ha interessat per la dificultat d'accés als contenidors per a les persones amb dificultats de mobilitat. Amb les dades sobre ubicació dels diferents contenidors i les xifres de reciclatge elabora una notícia per a un periòdic local amb la finalitat de visibilitzar la problemàtica.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://catgo.webs.upv.es/informe-datos-generados-por-la-ciudadania-desde-el-contexto-valenciano/#page=26)\n'
             + '· [Link 2](https://catgo.webs.upv.es/informe-datos-generados-por-la-ciudadania-desde-el-contexto-valenciano/#page=27)\n'
@@ -558,9 +559,9 @@ function handleComunicacion(msg) {
             break;
         case '3.3':
             term = 'Publicitat activa';
-            bot.sendMessage(msg.from.id, 'Publicitat activa: \n Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.');
+            bot.sendMessage(msg.from.id, 'Publicitat activa: \n Obligació de publicar certes informacions i dades per endavant, en la seu electrònica, web o portals de transparència de les administracions públiques.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions.");}, 1000);
+                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=11)\n'
@@ -569,9 +570,9 @@ function handleComunicacion(msg) {
             break;
         case '3.4':
             term = 'Transparència'
-            bot.sendMessage(msg.from.id, 'Transparència: \n Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.');
+            bot.sendMessage(msg.from.id, 'Transparència: \n Capacitat de les administracions públiques de no limitar la informació a través de la publicitat activa, dret d\'accés a la informació i les dades obertes.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions.");}, 1000);
+                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=8)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=11)\n'
@@ -598,9 +599,9 @@ function handleGobierno(msg) {
     switch(answer) {
         case '4.1':
             term = 'Govern obert';
-            bot.sendMessage(msg.from.id, 'Govern obert: \n Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.');
+            bot.sendMessage(msg.from.id, 'Govern obert: \n Té com a objectiu que la ciutadania i les organitzacions de qualsevol tipus col·laboren en la creació i millora de serveis públics i les polítiques públiques consolidant la transparència i la rendició de comptes.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions. Una persona periodista s'ha interessat per la dificultat d'accés als contenidors per a les persones amb dificultats de mobilitat. Amb les dades sobre ubicació dels diferents contenidors i les xifres de reciclatge elabora una notícia per a un periòdic local amb la finalitat de visibilitzar la problemàtica. L'ajuntament, motivat per la sol·licitud d'accés a informació i per la notícia elaborada per la persona periodista, decideix realitzar una reunió per a trobar una solució al problema en la qual participen les persones afectades de la seua ciutat, diferents fabricadores de contenidors i també convida als responsables del mateix servei en l'altra ciutat i a diverses persones amb problemes de mobilitat de l'altra ciutat.");}, 1000);
+                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions. Una persona periodista s'ha interessat per la dificultat d'accés als contenidors per a les persones amb dificultats de mobilitat. Amb les dades sobre ubicació dels diferents contenidors i les xifres de reciclatge elabora una notícia per a un periòdic local amb la finalitat de visibilitzar la problemàtica. L'ajuntament, motivat per la sol·licitud d'accés a informació i per la notícia elaborada per la persona periodista, decideix realitzar una reunió per a trobar una solució al problema en la qual participen les persones afectades de la seua ciutat, diferents fabricadores de contenidors i també convida als responsables del mateix servei en l'altra ciutat i a diverses persones amb problemes de mobilitat de l'altra ciutat.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=3)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=6)\n'
@@ -616,21 +617,22 @@ function handleGobierno(msg) {
             break;
         case '4.2':
             term = 'Bon govern'
-            bot.sendMessage(msg.from.id, 'Bon Govern: \n Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.');
+            bot.sendMessage(msg.from.id, 'Bon Govern: \n Forma d\'exercici del poder caracteritzada per l\'eficiència, la transparència, la rendició de comptes, la participació ciutadana i l\'estat de dret, que manifesta la decisió del govern d\'utilitzar els recursos disponibles a favor del desenvolupament social, mediambiental i econòmic per a tots.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, "Aplicació pràctica:\n" +
-                                                                "Una persona amb dificultats de mobilitat troba problemes per a reciclar correctament els residus en el contenidor específic, no obstant això, una amiga seua que viu en una altra ciutat no té problemes. La persona decideix buscar en el portal de transparència els contractes relatius al reciclatge dels diferents residus a la seua ciutat i a la ciutat de la seua amiga per a comparar-ho i veure si les dificultats que pateix poden ser degudes al contracte de reciclatge de residus de la seua ciutat. La informació és obligada per la normativa de transparència i troba que a la ciutat de la seua amiga és completa i té molts detalls. A la seua ciutat, encara que està la informació bàsica del contracte, no està prou detallada per a comparar-la amb la de la ciutat de la seua amiga. Així decideix realitzar una sol·licitud d'accés a informació pública que li permeta completar les dades i poder comparar el servei de recollida de residus en totes dues poblacions." +
-                                                                "Una persona periodista s'ha interessat per la dificultat d'accés als contenidors per a les persones amb dificultats de mobilitat. Amb les dades sobre ubicació dels diferents contenidors i les xifres de reciclatge elabora una notícia per a un periòdic local amb la finalitat de visibilitzar la problemàtica." +
-                                                                "L'ajuntament, motivat per la sol·licitud d'accés a informació i per la notícia elaborada per la persona periodista, decideix realitzar una reunió per a trobar una solució al problema en la qual participen les persones afectades de la seua ciutat, diferents fabricadores de contenidors i també convida als responsables del mateix servei en l'altra ciutat i a diverses persones amb problemes de mobilitat de l'altra ciutat." +
-                                                                "Fruit de la reunió, una de les empreses que fabrica contenidors decideix involucrar-se en el disseny contenidors que a més de millorar el reciclatge per a les persones amb mobilitat reduïda, resulten assequibles per l'ajuntament i siguen respectuosos amb el medi ambient."
+                                                                "Una persona con dificultades de movilidad encuentra problemas para reciclar correctamente los residuos en el contenedor específico, sin embargo, una amiga suya que vive en otra ciudad no tiene problemas. La persona decide buscar en el portal de transparencia los contratos relativos al reciclaje de los distintos residuos en su ciudad y en la ciudad de su amiga para compararlo y ver si las dificultades que sufre pueden ser debidas al contrato de reciclaje de residuos de su ciudad. La información es obligada por la normativa de transparencia y encuentra que en la ciudad de su amiga es completa y tiene muchos detalles pero que no tienen en su ciudad. Aunque está la información básica del contrato, no está suficientemente detallada para compararla con la de la ciudad de su amiga. Así decide realizar una solicitud de acceso a información pública que le permita completar los datos y poder comparar el servicio de recogida de residuos en ambas poblaciones." +
+                                                                "Una persona periodista se ha interesado por la dificultad de acceso a los contenedores para las personas con dificultades de movilidad. Con los datos sobre ubicación de los distintos contenedores y las cifras de reciclaje elabora una noticia para un periódico local con la finalidad de visibilizar la problemática." +
+                                                                "El ayuntamiento, motivado por la solicitud de acceso a información y por la noticia elaborada por la persona periodista, decide realizar una reunión para encontrar una solución al problema en la que participen las personas afectadas de su ciudad, a distintos fabricantes de contenedores y también invita a los responsables del mismo servicio en la otra ciudad y a varias personas con problemas de movilidad de la otra ciudad." +
+                                                                "Fruto de la reunión, una de las empresas que fabrica contenedores decide involucrarse en el diseño contenedores que además de mejorar el reciclaje para las personas con movilidad reducida, resulten asequibles por el ayuntamiento y sean respetuosos con el medio ambiente.", {parse_mode: "Markdown"});}, 1000);
+            setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](https://casaasia.es/governasia/boletin2/3.pdf#page=5)\n'
 
             , {parse_mode: "Markdown"});}, 2000)
             break;
         case '4.3':
             term = 'Consell de transparència';
-            bot.sendMessage(msg.from.id, 'Consell de transparència: \n Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.');
+            bot.sendMessage(msg.from.id, 'Consell de transparència: \n Organisme encarregat de vetlar per la transparència de l\'activitat pública i garantir el dret d\'accés a la informació que tenen els ciutadans o ciutadanes i organitzacions.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "L'alumnat realitza una consulta al Consell de transparència per a saber quina informació pot sol·licitar al centre en funció dels seus interessos. Els alumnes i alumnes sol·licita al centre la informació tal com els ha indicat el Consell de Transparència i ja saben que si el centre la denega, posaran una reclamació al Consell de transparència.");}, 1000);
+                                "L'alumnat realitza una consulta al Consell de transparència per a saber quina informació pot sol·licitar al centre en funció dels seus interessos. Els alumnes i alumnes sol·licita al centre la informació tal com els ha indicat el Consell de Transparència i ja saben que si el centre la denega, posaran una reclamació al Consell de transparència.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=9)\n'
 
@@ -638,9 +640,9 @@ function handleGobierno(msg) {
             break;
         case '4.4':
             term = 'Polítiques públiques'
-            bot.sendMessage(msg.from.id, 'Polítiques públiques: \n Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.');
+            bot.sendMessage(msg.from.id, 'Polítiques públiques: \n Mesures dutes a terme pels governs en matèria de les seues competències amb la finalitat de complir les expectatives de la ciutadania.', {parse_mode: "Markdown"});
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Aplicació pràctica:\n' +
-                                "Els delegats i delegades del centre educatiu han aconseguit que tant el seu centre com altres centres educatius de la seua ciutat i d'altres ciutats proposen en les respectives ciutats una gestió eficient de l'aigua i l'ús d'energia solar als centres. Els diferents ajuntaments decideixen que l'Agenda 2030 i els ODS suposaran l'eix transversal de les polítiques públiques de l'ajuntament.");}, 1000);
+                                "Els delegats i delegades del centre educatiu han aconseguit que tant el seu centre com altres centres educatius de la seua ciutat i d'altres ciutats proposen en les respectives ciutats una gestió eficient de l'aigua i l'ús d'energia solar als centres. Els diferents ajuntaments decideixen que l'Agenda 2030 i els ODS suposaran l'eix transversal de les polítiques públiques de l'ajuntament.", {parse_mode: "Markdown"});}, 1000);
             setTimeout(function(){ bot.sendMessage(msg.from.id, 'Ací tens més informació:\n'
             + '· [Link 1](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+ESO/#page=10)\n'
             + '· [Link 2](http://laaventuradeaprender.intef.es/documents/10184/78318/Guia+Bachillerato#page=10)\n'
@@ -670,123 +672,123 @@ function handleOds(msg) {
             bot.sendMessage(msg.from.id, 'Fi de la pobresa:');
             term = 'Fi de la pobresa';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "El nombre de persones que busquen en els contenidors aliments i objectes per a la seua pròpia llar, és un símptoma de l'augment de la pobresa");
+                                         "El nombre de persones que busquen en els contenidors aliments i objectes per a la seua pròpia llar, és un símptoma de l'augment de la pobresa", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "La mare és soltera i no té treball i prompte podria trobar-se en una situació pròxima a la pobresa");
+                                         "La mare és soltera i no té treball i prompte podria trobar-se en una situació pròxima a la pobresa", {parse_mode: "Markdown"});
             break;
         case '5.2':
             bot.sendMessage(msg.from.id, 'Fam zero:');
             term = 'Fam zero';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "Ser responsables amb els aliments i el seu consum redueix els residus i a més consciència als i les joves al fet que siguen respectuosos amb els aliments");
+                                         "Ser responsables amb els aliments i el seu consum redueix els residus i a més consciència als i les joves al fet que siguen respectuosos amb els aliments", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "La nevera de la família ràpid es quedarà quasi buida si no aconsegueix prompte treball");
+                                         "La nevera de la família ràpid es quedarà quasi buida si no aconsegueix prompte treball", {parse_mode: "Markdown"});
             break;
         case '5.3':
-            bot.sendMessage(msg.from.id, 'Salut i benestar:');
+            bot.sendMessage(msg.from.id, 'Salut i benestar:', {parse_mode: "Markdown"});
             term = 'Salut i benestar';
             bot.sendMessage(msg.from.id, "Sketch 6: Reenviar\n" +
-                                         "Els centres educatius han de donar més importància a les classes d'educació sexual perquè l'alumnat estiga conscienciat amb les malalties de transmissió sexual que han augmentat en els últims anys");
+                                         "Els centres educatius han de donar més importància a les classes d'educació sexual perquè l'alumnat estiga conscienciat amb les malalties de transmissió sexual que han augmentat en els últims anys", {parse_mode: "Markdown"});
             break;
         case '5.4':
-            bot.sendMessage(msg.from.id, 'Educació de qualitat');
+            bot.sendMessage(msg.from.id, 'Educació de qualitat', {parse_mode: "Markdown"});
             term = 'Educació de qualitat';
             bot.sendMessage(msg.from.id, "Sketch 3: El professor no ha vingut\n" +
-                                         "L'absència injustificada d'un professor o professora impedeix continuar la formació adequada de l'alumnat");
+                                         "L'absència injustificada d'un professor o professora impedeix continuar la formació adequada de l'alumnat", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 4: Eleccions a delegats i delegades\n" +
-                                         "Una de les candidates a delegada porta en les seues propostes millores per a una educació de qualitat. Donada la importància de l'Agenda 2030, s'hauria de trobar en el currículum coincidències que permeten l'educació en desenvolupament sostenible");
+                                         "Una de les candidates a delegada porta en les seues propostes millores per a una educació de qualitat. Donada la importància de l'Agenda 2030, s'hauria de trobar en el currículum coincidències que permeten l'educació en desenvolupament sostenible", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 5: Suspens generalizat\n" +
-                                         "L'alumnat acudeix a secretaria per a demanar les notes de cursos anteriors ja que ha suspés tota la classe. Entre l'alumnat i el professorat implicat haurien de trobar un solució al problema del suspens generalitzat que passarà per utilitzar una altra metodologia d'aprenentatge-ensenyament de l'assignatura de matemàtiques");
+                                         "L'alumnat acudeix a secretaria per a demanar les notes de cursos anteriors ja que ha suspés tota la classe. Entre l'alumnat i el professorat implicat haurien de trobar un solució al problema del suspens generalitzat que passarà per utilitzar una altra metodologia d'aprenentatge-ensenyament de l'assignatura de matemàtiques", {parse_mode: "Markdown"});
             break;
         case '5.5':
-            bot.sendMessage(msg.from.id, 'Igualtat de gènere:');
+            bot.sendMessage(msg.from.id, 'Igualtat de gènere:', {parse_mode: "Markdown"});
             term = 'Igualtat de gènere';
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "La diferència entre els sous d'homes i dones pel mateix treball és una realitat que necessita visibilitzar-se a tots els nivells per a poder canviar-se");
+                                         "La diferència entre els sous d'homes i dones pel mateix treball és una realitat que necessita visibilitzar-se a tots els nivells per a poder canviar-se", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 6: Reenviar\n" +
-                                         "El més probable és que, en difondre's el vídeo, els comentaris sobre ell i sobre ella siguen molt diferents");
+                                         "El més probable és que, en difondre's el vídeo, els comentaris sobre ell i sobre ella siguen molt diferents", {parse_mode: "Markdown"});
             break;
         case '5.6':
-            bot.sendMessage(msg.from.id, 'Aigua neta i sanejament:');
+            bot.sendMessage(msg.from.id, 'Aigua neta i sanejament:', {parse_mode: "Markdown"});
             term = 'Aigua neta i sanejament';
             bot.sendMessage(msg.from.id, "Sketch 4: Eleccions a delegats i delegades\n" +
-                                         "Una de les propostes dels candidats i les candidates podria ser la reutilització de l'aigua de pluja per al reg de les plantes i zones verdes del centre i també per a l'aigua de la cisterna. Es podria ampliar aqueixa iniciativa a altres centres de la mateixa ciutat i d'altres ciutats i també a altres entitats públiques.");
+                                         "Una de les propostes dels candidats i les candidates podria ser la reutilització de l'aigua de pluja per al reg de les plantes i zones verdes del centre i també per a l'aigua de la cisterna. Es podria ampliar aqueixa iniciativa a altres centres de la mateixa ciutat i d'altres ciutats i també a altres entitats públiques.", {parse_mode: "Markdown"});
             break;
         case '5.7': 
-            bot.sendMessage(msg.from.id, 'Energia assequible i no contaminant:');
+            bot.sendMessage(msg.from.id, 'Energia assequible i no contaminant:', {parse_mode: "Markdown"});
             term = 'Energia assequible i no contaminant';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "La diferència entre els sous d'homes i dones pel mateix treball és una realitat que necessita visibilitzar-se a tots els nivells per a poder canviar-se");
+                                         "La diferència entre els sous d'homes i dones pel mateix treball és una realitat que necessita visibilitzar-se a tots els nivells per a poder canviar-se", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 4: Eleccions a delegats i delegades\n" +
-                                         "El més probable és que, en difondre's el vídeo, els comentaris sobre ell i sobre ella siguen molt diferents");
+                                         "El més probable és que, en difondre's el vídeo, els comentaris sobre ell i sobre ella siguen molt diferents", {parse_mode: "Markdown"});
             break;
         case '5.8':
-            bot.sendMessage(msg.from.id, 'Treball decent i creixement econòmic:');
+            bot.sendMessage(msg.from.id, 'Treball decent i creixement econòmic:', {parse_mode: "Markdown"});
             term = 'Treball decent i creixement econòmic';
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "La mare està buscant un treball per a poder traure a la seua família endavant");
+                                         "La mare està buscant un treball per a poder traure a la seua família endavant", {parse_mode: "Markdown"});
             break;
         case '5.9':
-            bot.sendMessage(msg.from.id, 'Indústria, innovació i infraestructura:');
+            bot.sendMessage(msg.from.id, 'Indústria, innovació i infraestructura:', {parse_mode: "Markdown"});
             term = 'Indústria, innovació i infraestructura';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "El camí, excessivament llarg no està adaptat a persones amb mobilitat reduïda. Si es continua innovant en el disseny de materials perquè els carrers siguen capaços de produir energia a través del moviment de persones i vehicles, disminuiria el consum d'energia.");
+                                         "El camí, excessivament llarg no està adaptat a persones amb mobilitat reduïda. Si es continua innovant en el disseny de materials perquè els carrers siguen capaços de produir energia a través del moviment de persones i vehicles, disminuiria el consum d'energia.", {parse_mode: "Markdown"});
             break;
         case '5.10':
-            bot.sendMessage(msg.from.id, 'Reducció de les desigualtats:');
+            bot.sendMessage(msg.from.id, 'Reducció de les desigualtats:', {parse_mode: "Markdown"});
             term = 'Reducció de les desigualtats';
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "La falta de treball és una desigualtat en si mateixa i pot contribuir a altres desigualtats a tots els nivells");
+                                         "La falta de treball és una desigualtat en si mateixa i pot contribuir a altres desigualtats a tots els nivells", {parse_mode: "Markdown"});
             break; 
         case '5.11':
-            bot.sendMessage(msg.from.id, 'Ciutats i comunitats sostenibles:');
+            bot.sendMessage(msg.from.id, 'Ciutats i comunitats sostenibles:', {parse_mode: "Markdown"});
             term = 'Ciutats i comunitats sostenibles';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "El camí, excessivament llarg no està adaptat a persones amb mobilitat reduïda. Si es continua innovant en el disseny de materials perquè els carrers siguen capaços de produir energia a través del moviment de persones i vehicles, disminuiria el consum d'energia.");
+                                         "El camí, excessivament llarg no està adaptat a persones amb mobilitat reduïda. Si es continua innovant en el disseny de materials perquè els carrers siguen capaços de produir energia a través del moviment de persones i vehicles, disminuiria el consum d'energia.", {parse_mode: "Markdown"});
             break;
         case '5.12':
-            bot.sendMessage(msg.from.id, 'Producció i consum responsables:');
+            bot.sendMessage(msg.from.id, 'Producció i consum responsables:', {parse_mode: "Markdown"});
             term = 'Producció i consum responsables';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "El consum responsable i l'elecció dels productes pels consumidors tenint en compte l'origen i l'embolcall, fomentaria que les empreses utilitzaran més matèries primeres de proximitat i que els seus productes generaren menys residus");
+                                         "El consum responsable i l'elecció dels productes pels consumidors tenint en compte l'origen i l'embolcall, fomentaria que les empreses utilitzaran més matèries primeres de proximitat i que els seus productes generaren menys residus", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 6: Reenviar\n" +
-                                         "L'ús d'aplicacions i xarxes socials és el consum d'un servei, i aquest pot ser responsable o no. L'enregistrament i la difusió de contingut privat no és un ús responsable. També és responsabilitat dels alumnes realitzar activitats poc adequades en el bany");
+                                         "L'ús d'aplicacions i xarxes socials és el consum d'un servei, i aquest pot ser responsable o no. L'enregistrament i la difusió de contingut privat no és un ús responsable. També és responsabilitat dels alumnes realitzar activitats poc adequades en el bany", {parse_mode: "Markdown"});
             break;
         case '5.13':
-            bot.sendMessage(msg.from.id, 'Acció pel clima:');
+            bot.sendMessage(msg.from.id, 'Acció pel clima:', {parse_mode: "Markdown"});
             term = 'Acció pel clima';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "El consum responsable i l'elecció dels productes pels consumidors tenint en compte l'origen i l'embolcall, fomentaria que les empreses utilitzaran més matèries primeres de proximitat i que els seus productes generaren menys residus.");
+                                         "El consum responsable i l'elecció dels productes pels consumidors tenint en compte l'origen i l'embolcall, fomentaria que les empreses utilitzaran més matèries primeres de proximitat i que els seus productes generaren menys residus.", {parse_mode: "Markdown"});
             break;
         case '5.14':
-            bot.sendMessage(msg.from.id, 'Vida submarina:');
+            bot.sendMessage(msg.from.id, 'Vida submarina:', {parse_mode: "Markdown"});
             term = 'Vida submarina';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "Els residus que no es reciclen correctament acaben en el mar o altres ecosistemes afectant l'alimentació i vida dels animals marins i també a l'alimentació dels humans com a resultat de la cadena alimentària.");
+                                         "Els residus que no es reciclen correctament acaben en el mar o altres ecosistemes afectant l'alimentació i vida dels animals marins i també a l'alimentació dels humans com a resultat de la cadena alimentària.", {parse_mode: "Markdown"});
             break;
         case '5.15':
-            bot.sendMessage(msg.from.id, 'Vida d\'ecosistemes terrestres:');
+            bot.sendMessage(msg.from.id, 'Vida d\'ecosistemes terrestres:', {parse_mode: "Markdown"});
             term = 'Vida d\'ecosistemes terrestres';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "Els residus que no es reciclen correctament acaben en els abocadors legals o il·legals i també augmenten els gasos contaminants per la combustió dels residus.");
+                                         "Els residus que no es reciclen correctament acaben en els abocadors legals o il·legals i també augmenten els gasos contaminants per la combustió dels residus.", {parse_mode: "Markdown"});
             break;
         case '5.16':
-            bot.sendMessage(msg.from.id, 'Pau, justícia i institucions sòlides:');
+            bot.sendMessage(msg.from.id, 'Pau, justícia i institucions sòlides:', {parse_mode: "Markdown"});
             term = 'Pau, justícia i institucions sòlides';
             bot.sendMessage(msg.from.id, "Sketch 3: El professor no ha vingut\n" +
-                                         "La falta de professorat substitut o que vigile els corredors i que totes les classes tenen al seu professor o professora deixa a l'alumnat desatés i produeix falta de confiança en el centre educatiu");
+                                         "La falta de professorat substitut o que vigile els corredors i que totes les classes tenen al seu professor o professora deixa a l'alumnat desatés i produeix falta de confiança en el centre educatiu", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 5: Suspens generalizat\n" +
-                                         "L'alumnat vol saber si les seues notes han sigut justes i si el centre protegeix injustificadament al professorat");
+                                         "L'alumnat vol saber si les seues notes han sigut justes i si el centre protegeix injustificadament al professorat", {parse_mode: "Markdown"});
             break;
         case '5.17':
-            bot.sendMessage(msg.from.id, 'Aliances per a aconseguir els objectius:');
+            bot.sendMessage(msg.from.id, 'Aliances per a aconseguir els objectius:', {parse_mode: "Markdown"});
             term = 'Aliances per a aconseguir els objectius';
             bot.sendMessage(msg.from.id, "Sketch 1: El contenidor llunyà\n" +
-                                         "Els residus que no es reciclen correctament acaben en els abocadors legals o il·legals i també augmenten els gasos contaminants per la combustió dels residus.");
+                                         "Els residus que no es reciclen correctament acaben en els abocadors legals o il·legals i també augmenten els gasos contaminants per la combustió dels residus.", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 2: Recorda't de la reunió\n" +
-                                         "El bon funcionament de les oficines d'ocupació i la sinceritat de les persones quan busquen ocupació, afavorirà que les persones que veritablement estan interessades a trobar ocupació, ho troben");
+                                         "El bon funcionament de les oficines d'ocupació i la sinceritat de les persones quan busquen ocupació, afavorirà que les persones que veritablement estan interessades a trobar ocupació, ho troben", {parse_mode: "Markdown"});
             bot.sendMessage(msg.from.id, "Sketch 3: El professor no ha vingut\n" +
-                                         "Si l'alumnat informa de la falta del professor a l'aula al centre en el moment, serà probable que el centre educatiu puga trobar una solució ràpida a la situació de falta de professorat");
+                                         "Si l'alumnat informa de la falta del professor a l'aula al centre en el moment, serà probable que el centre educatiu puga trobar una solució ràpida a la situació de falta de professorat", {parse_mode: "Markdown"});
 
             break;
     }
